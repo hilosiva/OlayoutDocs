@@ -3,7 +3,13 @@ title: spacer
 description: A reference page in my new Starlight docs site.
 ---
 
-余白を設定するための属性です。
+余白を設定するためのclassです。
+
+```html
+<div class="ol-spacer">
+  ...
+</div>
+```
 
 ## margin
 
@@ -18,7 +24,7 @@ description: A reference page in my new Starlight docs site.
 
 ### 例
 ```html [上下と左右のmargin]
-<div data-my="min:4 md:8 lg:16" data-mx="min:4 md:6"> ... </div>
+<div  class="ol-spacer" data-my="min:4 md:8 lg:16" data-mx="min:4 md:6"> ... </div>
 ```
 
 ## padding
@@ -35,5 +41,5 @@ description: A reference page in my new Starlight docs site.
 
 ### 例
 ```html
-<div data-py="min:4 md:8 lg:16" data-px="min:4 md:6"> ... </div>
+<div class="ol-spacer" data-py="min:4 md:8 lg:16" data-px="min:4 md:6"> ... </div>
 ```
