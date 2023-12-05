@@ -8,6 +8,11 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "OlayoutCSS",
+      logo: {
+        light: "./src/assets/light-logo.svg",
+        dark: "./src/assets/dark-logo.svg",
+        replacesTitle: true,
+      },
       social: {
         github: "https://github.com/hilosiva/OlayoutCSS",
       },
@@ -37,6 +42,9 @@ export default defineConfig({
         // Relative path to your custom CSS file
         "./src/styles/custom.css",
       ],
+      components: {
+        Footer: "./src/components/Footer.astro",
+      },
       editLink: {
         baseUrl: "https://github.com/hilosiva/olayout-docs/edit/main/",
       },
