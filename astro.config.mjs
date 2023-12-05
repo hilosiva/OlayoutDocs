@@ -3,6 +3,8 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://olayout-docs.github.io",
+  base: "/olayout-docs",
   integrations: [
     starlight({
       title: "OlayoutCSS",
