@@ -33,6 +33,10 @@ export default defineConfig({
           autogenerate: { directory: "reference" },
         },
       ],
+      editLink: {
+        baseUrl: "https://github.com/hilosiva/olayout-docs/edit/main/",
+      },
+      lastUpdated: true,
     }),
   ],
 });
