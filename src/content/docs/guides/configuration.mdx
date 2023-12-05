@@ -1,0 +1,68 @@
+---
+title: Configuration
+description: A guide in my new Starlight docs site.
+---
+
+OlayoutCSSの設定はJSファイルを利用します。
+
+
+## 設定ファイル
+
+olayout.config.cjs
+
+
+```json [olayout.config.cjs]
+module.exports = {
+  prefix: "ol",
+  theme: {
+    screens: {
+      min: "0",
+      xxs: "375px",
+      xs: "414px",
+      sm: "576px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1480px",
+    },
+    layout: {
+      "sm-offset": "2.5vw",
+      "md-offset": "5vw",
+      "lg-offset": "10vw",
+      "xl-offset": "15vw",
+      "sm-content-width": 640,
+      "md-content-width": 768,
+      "lg-content-width": 1024,
+      "xl-content-width": 1280,
+      "xxl-content-width": 1440,
+      "sm-design-width": 375,
+      "md-design-width": 768,
+      "lg-design-width": 1440,
+      "scrollbar-width": 0,
+      space: 8,
+    },
+    colors: {
+      "base-color": "#fff",
+      "main-color": "#116ec5",
+      "accent-color": "#e4d558",
+      "light-color": "#efefef",
+      "dark-color": "#1c1c1c",
+      "primary-text-color": "#101010",
+      "light-text-color": "#fff",
+    },
+    typos: {
+      "primary-font-set": '-apple-system, BlinkMacSystemFont, "Yu Gothic", sans-serif',
+      "en-font-set": '"Helvetica Neue", "Helvetica", "Arial", sans-serif',
+      "base-line-height": 1.5,
+      "base-feature-settings": '"pkna"',
+      "base-letter-spacing": "0.05em",
+    },
+    animations: {
+      "scroll-behavior": "smooth",
+      "ease-out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+      duration: "0.6s",
+    },
+  },
+}
+
+```
