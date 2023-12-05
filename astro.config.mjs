@@ -33,6 +33,10 @@ export default defineConfig({
           autogenerate: { directory: "reference" },
         },
       ],
+      customCss: [
+        // Relative path to your custom CSS file
+        "./src/styles/custom.css",
+      ],
       editLink: {
         baseUrl: "https://github.com/hilosiva/olayout-docs/edit/main/",
       },
