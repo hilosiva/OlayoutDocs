@@ -3,56 +3,47 @@ title: flex
 description: A reference page in my new Starlight docs site.
 ---
 
-Flexboxを用いたレイアウト用 class。
+Flexboxを用いたレイアウト用属性。
+`data-flex` を使うか、`data-display="flex"` を使ってフレックスボックスを利用できます。
+
 
 ```html
-<div class="ol-flex">
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
+<div data-flex>
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
 </div>
 ```
-
-## Wrap
-`data-wrap`属性で、`flex-wrap` の設定ができます。
 
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-wrap` | `ブレイクポイント名:nowrap` | `flex-wrap: nowrap` |
-| `data-wrap` | `ブレイクポイント名:wrap` | `flex-wrap: wrap` |
+| `data-flex` | - | フレックスボックスにする |
+
+※. `data-flex` 属性はブレイクポイントによっての切り替えは出来ません。ブレイクポイントを利用して、flexを有無を切り替える場合は、`data-display="flex"` 属性を利用してください。
 
 
-### 例
-```html [上下と左右のmargin]
-<div class="ol-flex" data-wrap="min:wrap">
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
-</div>
-```
-
-## Direction
-`data-dir`属性で、フレックスアイテムの方向を設定できます。
+## 折返しと方向
+`data-flow`属性で、折返しや方向の設定ができます。
 
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-dir` | `ブレイクポイント名:row` | 横方向に順番に並ぶ |
-| `data-dir` | `ブレイクポイント名:reverse` |  横方向に逆順で並ぶ |
-| `data-dir` | `ブレイクポイント名:column` |  縦方向に順番に並ぶ |
+| `data-flow` | `nowrap` | flexアイテムを折り返さない |
+| `data-flow` | `wrap` |  flexアイテムを折り返す |
+| `data-flow` | `row` | 横方向に順番に並ぶ |
+| `data-flow` | `reverse` |  横方向に逆順で並ぶ |
+| `data-flow` | `column` |  縦方向に順番に並ぶ |
 
 
 
-### 例
 ```html [上下と左右のmargin]
-<div class="ol-flex" data-dir="min:column lg:row">
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
+<div data-flex data-flow="wrap column lg:row">
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
 </div>
 ```
-
 
 ## Alignment
 
@@ -60,21 +51,20 @@ Flexboxを用いたレイアウト用 class。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-align` | `ブレイクポイント名:start` | 左揃え |
-| `data-align` | `ブレイクポイント名:center` |  水平中央揃え |
-| `data-align` | `ブレイクポイント名:end` |  右揃え |
-| `data-align` | `ブレイクポイント名:justify` |  均等揃え |
-| `data-align` | `ブレイクポイント名:top` |  上揃え |
-| `data-align` | `ブレイクポイント名:middle` |  垂直中央揃え |
-| `data-align` | `ブレイクポイント名:bottom` |  下揃え |
+| `data-align` | `start` | 左揃え |
+| `data-align` | `center` |  水平中央揃え |
+| `data-align` | `end` |  右揃え |
+| `data-align` | `justify` |  均等揃え |
+| `data-align` | `top` |  上揃え |
+| `data-align` | `middle` |  垂直中央揃え |
+| `data-align` | `bottom` |  下揃え |
 
 
-### 例
 ```html [上下と左右のmargin]
-<div class="ol-flex" data-align="min:center min:middle lg:end">
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
+<div data-flex data-align="center min:middle lg:end">
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
 </div>
 ```
 
@@ -90,11 +80,19 @@ Flexboxを用いたレイアウト用 class。
 
 
 
-### 例
 ```html [上下と左右のmargin]
-<div class="ol-flex" data-gap="min:4 md:6 lg:8">
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
-  <div class="ol-flex__item">...</div>
+<div data-flex data-gap="4 min:6 lg:8">
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
 </div>
 ```
+
+
+## Glow
+
+
+## shilink
+
+
+## order

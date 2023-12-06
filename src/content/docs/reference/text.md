@@ -7,92 +7,91 @@ description: A reference page in my new Starlight docs site.
 
 
 ```html
-<div class="ol-text">
+<div data-text>
   ...
 </div>
 ```
 
-## Align
+## 位置揃え
 
-`data-align` 属性を使って、テキストの位置揃えができます。
+`data-text` 属性を使って、テキストの位置揃えができます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-align` | `ブレイクポイント名:left` | 左揃え |
-| `data-align` | `ブレイクポイント名:center` | 中央揃え |
-| `data-align` | `ブレイクポイント名:right` | 右揃え |
-| `data-align` | `ブレイクポイント名:justify` | 両端揃え |
+| `data-text` | `left` | 左揃え |
+| `data-text` | `center` | 中央揃え |
+| `data-text` | `right` | 右揃え |
+| `data-text` | `justify` | 両端揃え |
 
 
 ```html
-<p class="ol-text" data-align="min:center">...</p>
+<p data-text="center">...</p>
 ```
 
 ## Case
 
-`data-case` 属性を使って、英文字の大文字/小文字の設定ができます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-case` | `ブレイクポイント名:uppercase` | 全て大文字 |
-| `data-case` | `ブレイクポイント名:normal` | 記述通り |
+| `data-text` | `uppertext` | 全て大文字 |
+| `data-text` | `normal` | 記述通り |
 
 
 
 ```html
-<p class="ol-text" data-case="min:uppercase">...</p>
+<p data-text="uppercase">...</p>
 ```
 
 ## Word Break
 
-`data-word` 属性を使って、改行の設定ができます。
+`data-text` 属性を使って、改行の設定ができます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-word` | `ブレイクポイント名:keep` | 「、」「。」などで改行する |
-| `data-word` | `ブレイクポイント名:auto` | 自動 |
+| `data-text` | `keep` | 「、」「。」などで改行する |
+| `data-text` | `break-nomal` | 自動 |
 
 
 
 ```html
-<p class="ol-text" data-word="min:keep">
+<p data-text="keep">
   日本語でも、変な位置では<wbr>改行しない。
 </p>
 ```
 
 ## White Space
 
-`data-space` 属性を使って、空白の設定ができます。
+`data-text` 属性を使って、空白の設定ができます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-space` | `ブレイクポイント名:nowrap` | 改行しない |
-| `data-space` | `ブレイクポイント名:wrap` | 改行 |
-| `data-space` | `ブレイクポイント名:pre` | 記述通り |
-| `data-space` | `ブレイクポイント名:preWrap` | `pre-wrap` |
+| `data-text` | `nowrap` | 改行しない |
+| `data-text` | `wrap` | 改行 |
+| `data-text` | `pre` | 記述通り |
+| `data-text` | `preWrap` | `pre-wrap` |
 
 
 
 ```html
-<p class="ol-text" data-space="min:nowrap">...</p>
+<p data-text="nowrap">...</p>
 ```
 
 ## Line Height
 
-`data-line` 属性を使って、行の高さの設定ができます。
+`data-leading` 属性を使って、行の高さの設定ができます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-line` | `ブレイクポイント名:-2` | `0.5` |
-| `data-line` | `ブレイクポイント名:-1` | `0.75` |
-| `data-line` | `ブレイクポイント名:1` | `1` |
-| `data-line` | `ブレイクポイント名:+1` | `1.25` |
-| `data-line` | `ブレイクポイント名:+1` | `1.25` |
-| `data-line` | `ブレイクポイント名:+2` | `1.5` |
-| `data-line` | `ブレイクポイント名:+3` | `1.75` |
-| `data-line` | `ブレイクポイント名:+4` | `2` |
-| `data-line` | `ブレイクポイント名:+5` | `2.25` |
-| `data-line` | `ブレイクポイント名:+6` | `2.5` |
+| `data-leading` | `-2` | `0.5` |
+| `data-leading` | `-1` | `0.75` |
+| `data-leading` | `1` | `1` |
+| `data-leading` | `+1` | `1.25` |
+| `data-leading` | `+1` | `1.25` |
+| `data-leading` | `+2` | `1.5` |
+| `data-leading` | `+3` | `1.75` |
+| `data-leading` | `+4` | `2` |
+| `data-leading` | `+5` | `2.25` |
+| `data-leading` | `+6` | `2.5` |
 
 
 
@@ -134,7 +133,6 @@ description: A reference page in my new Starlight docs site.
 | `data-kerning` | `ブレイクポイント名:normal` | `normal` |
 | `data-kerning` | `ブレイクポイント名:palt` | `palt` |
 | `data-kerning` | `ブレイクポイント名:pkna` | `pkna` |
-
 
 
 

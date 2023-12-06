@@ -7,5 +7,5 @@ description: A reference page in my new Starlight docs site.
 
 
 ```html
-<span class="ol-visuallyHidden">...</span>
+<span data-visually-hidden>...</span>
 ```

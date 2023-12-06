@@ -3,11 +3,11 @@ title: container
 description: A reference page in my new Starlight docs site.
 ---
 
-ボックスのコンテナーを設定するclass。
+ボックスのコンテナーを設定することができる属性です。
 
 
 ```html
-<div class="ol-container">
+<div data-container>
   ...
 </div>
 ```
@@ -21,25 +21,25 @@ description: A reference page in my new Starlight docs site.
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-offset` | `ブレイクポイント名:small` | 左右のオフセット値を `small` にする |
-| `data-offset` | `ブレイクポイント名:medium` | 左右のオフセット値 `medium` にする|
-| `data-offset` | `ブレイクポイント名:large` | 左右のオフセット値 `large` にする|
-| `data-offset` | `ブレイクポイント名:xlarge` | 左右のオフセット値 `xlarge` にする|
-| `data-offset` | `ブレイクポイント名:none` | 左右のオフセット値を `0` にする|
-| `data-offset-left` | `ブレイクポイント名:small` | 左のオフセット値 `small` にする |
-| `data-offset-left` | `ブレイクポイント名:medium` | 左のオフセット値 `medium` にする|
-| `data-offset-left` | `ブレイクポイント名:large` | 左のオフセット値 `large` にする|
-| `data-offset-left` | `ブレイクポイント名:xlarge` | 左のオフセット値 `xlarge` にする|
-| `data-offset-left` | `ブレイクポイント名:none` | 左のオフセット値 `0` にする|
-| `data-offset-right` | `ブレイクポイント名:small` | 右のオフセット値 `small` にする |
-| `data-offset-right` | `ブレイクポイント名:medium` | 右のオフセット値 `medium` にする|
-| `data-offset-right` | `ブレイクポイント名:large` | 右のオフセット値 `large` にする|
-| `data-offset-right` | `ブレイクポイント名:xlarge` | 右のオフセット値 `xlarge` にする|
-| `data-offset-right` | `ブレイクポイント名:none` | 右のオフセット値 `0` にする|
+| `data-offset` | `small` | 左右のオフセット値を `small` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset` | `medium` <small>（初期値 ）</small> | 左右のオフセット値 `medium` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset` | `large` | 左右のオフセット値 `large` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset` | `xlarge` | 左右のオフセット値 `xlarge` にする<br><small>（デフォルト： `2.5vw` ）</small> |
+| `data-offset` | `none` | 左右のオフセット値を `0` にする<br><small>（デフォルト： `2.5vw` ）</small> |
+| `data-offset-left` | `small` | 左のオフセット値 `small` にする<br><small>（デフォルト： `2.5vw` ）</small> |
+| `data-offset-left` | `medium` | 左のオフセット値 `medium` にする<br><small>（デフォルト： `2.5vw` ）</small> |
+| `data-offset-left` | `large` | 左のオフセット値 `large` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset-left` | `xlarge` | 左のオフセット値 `xlarge` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset-left` | `none` | 左のオフセット値 `0` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset-right` | `small` | 右のオフセット値 `small` にする<br><small>（デフォルト： `2.5vw` ）</small> |
+| `data-offset-right` | `medium` | 右のオフセット値 `medium` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset-right` | `large` | 右のオフセット値 `large` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset-right` | `xlarge` | 右のオフセット値 `xlarge` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+| `data-offset-right` | `none` | 右のオフセット値 `0` にする<br><small>（デフォルト： `2.5vw` ）</small>|
 
 
 ```html
-<div class="ol-container" data-offset="min:small lg:large">
+<div data-container data-offset="small lg:large">
   ...
 </div>
 ```
@@ -51,32 +51,51 @@ description: A reference page in my new Starlight docs site.
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-max` | `ブレイクポイント名:small` | 最大幅を `small` にする |
-| `data-offset` | `ブレイクポイント名:medium` | 最大幅 `medium` にする|
-| `data-offset` | `ブレイクポイント名:large` | 最大幅 `large` にする|
-| `data-offset` | `ブレイクポイント名:xlarge` | 最大幅 `xlarge` にする|
-| `data-offset` | `ブレイクポイント名:xxlarge` | 最大幅 `xlarge` にする|
-| `data-offset` | `ブレイクポイント名:none` | 最大幅を設定しない|
+| `data-max` | `small` | 最大幅を `small` にする |
+| `data-offset` | `medium` | 最大幅 `medium` にする|
+| `data-offset` | `large` | 最大幅 `large` にする|
+| `data-offset` | `xlarge` | 最大幅 `xlarge` にする|
+| `data-offset` | `xxlarge` | 最大幅 `xlarge` にする|
+| `data-offset` | `none` | 最大幅を設定しない|
 
 
 ```html
-<div class="ol-container" data-max="lg:large">
+<div data-container data-max="large">
   ...
 </div>
 ```
 
 ## Align
 
-`data-align` 属性を使って、コンテナーの位置揃えができます。
+`data-container` 属性を使って、コンテナーの位置揃えができます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-align` | `ブレイクポイント名:left` | 左揃え |
-| `data-align` | `ブレイクポイント名:center` | 中央揃え |
-| `data-align` | `ブレイクポイント名:right` | 右揃え |
+| `data-container` | `left` | 左揃え |
+| `data-container` | `center` | 中央揃え |
+| `data-container` | `right` | 右揃え |
 
 ```html
-<div class="ol-container" data-max="lg:large" data-align="lg:right">
+<div data-container="center lg:right" data-max="large">
+  ...
+</div>
+```
+
+## Over
+
+`data-over` 属性を使って、コンテナーを超えて要素を配置することが出来ます。
+
+| 属性名    | 属性値                    | 説明 |
+| --------- | ------------------------- | ---- |
+| `data-over` | `left` | 左側のコンテナーを超える |
+| `data-over` | `right` | 右側のコンテナーを超える |
+| `data-over` | `both` | 両側のコンテナーを超える |
+| `data-over` | `clearLeft` | 超えた左側のコンテナーを戻す |
+| `data-over` | `clearRight` | 超えた右側のコンテナーを戻す |
+| `data-over` | `clearBoth` | 超えた両側のコンテナーを戻す |
+
+```html
+<div data-container data-over="left">
   ...
 </div>
 ```
