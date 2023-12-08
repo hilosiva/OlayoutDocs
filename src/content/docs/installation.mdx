@@ -1,29 +1,131 @@
 ---
-title: Get started with OlayoutCSS
+title: OlayoutCSSを使ってみる
 description: A reference page in my new Starlight docs site.
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
+Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSSファイルに移動せず、マークアップしながらカスタムデータ属性でWebページのレイアウトがをすることにフォーカスしています。
 
-OlayoutCSSは、俺流のCSSフレームワークです。
+ユーティリティファーストなコーディングを行いたい場合は、確実に [Tailwind CSS](https://tailwindcss.com/) などのフレームワークの方が便利です。
 
-## Installation
+## インストール
 
 <Tabs>
   <TabItem label="CDN">
-    OlayoutCSSはCDNでも利用することができますが、あまりお勧めしません。
+    CDNを利用して、Olayout CSSを試すことができます。ただし、ブレイクポイントのカスタムや便利な関数などの一部の機能が利用できないため、**あまりお勧めはしません。**
 
-    ```html
-      <script src=""></script>
-    ```
+    1. CDNのOlayout CSSを追加<br />`head`要素内に`link`要素を用いてCDN経由のOlayout CSSを読み込んでください。
+
+       ```html {8}
+       // index.html
+       <!DOCTYPE html>
+       <html lang="ja">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+         <title>Olayout CSS</title>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.0/cdn/olayout.min.css">
+       </head>
+       <body>
+         <h1 data-color="main">Olayout CSS</h1>
+       </body>
+       </html>
+       ```
+    2. Olayoutの開始<br />data-\*属性を活用したOlayout CSSによるレイアウトをお楽しみください。
+       ```html {11}
+       // index.html
+       <!DOCTYPE html>
+       <html lang="ja">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+         <title>Olayout CSS</title>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.0/cdn/olayout.min.css">
+       </head>
+       <body>
+         <h1 data-color="main">Olayout CSS</h1>
+       </body>
+       </html>
+       ```
   </TabItem>
   <TabItem label="PostCSS">
 
-    PostCSSを使った方法がいいと思います。
+    Olayout CSS を PostCSSのプラグインとして利用することができます。Viteなどのツールを使っている場合は、こちらをお勧めします。
 
-    ```zsh
-    npm install @hilosiva/olayoutcss
-    ```
+    1. OlayoutCSSをインストールする<br />npm や yarn、pnpmなどを利用して "@hilosiva/olayoutcss" とその依存パッケージをインストールします。
+
+       ```zsh title="Terminal"
+       npm install @hilosiva/olayoutcss postcss autoprefixer -D
+       ```
+       :::caution
+       Orelop Static は、GitHub Package に公開されているパッケージを利用するため、インストールには、GitHub の「[Personal access tokens (classic)](https://github.com/settings/tokens)」が必要となります。
+
+
+       以下の手順で「.npmrc」ファイルを作成し、@hilosiva の GitHub Package をインストールできるようにしておいて下さい。
+
+       1. GitHub の「read\:packages」権限を付与した「[Personal access tokens (classic)](https://github.com/settings/tokens)」を取得
+       2. お使いのマシンのホームディレクトリ（他のプロジェクトでも使える）かプロジェクトのルートディレクトリ（このプロジェクトのみ使える）に「.npmrc」ファイルを作成し、以下の内容で保存
+
+          ```
+          // .npmrc
+          @hilosiva:registry="https://npm.pkg.github.com"
+          //npm.pkg.github.com/:_authToken={Personal access tokens}
+          ```
+          ※ \{Personal access tokens\} は「1」で取得したトークンに置き換える
+
+          ```
+          // .npmrc
+          @hilosiva:registry="https://npm.pkg.github.com"
+          //npm.pkg.github.com/:_authToken=ghp_XXXXXXXXXXXXXXXXXXXXX
+          ```
+       :::
+
+    2. PostCSSのプラグインに、Olayout を追加<br />プロジェクトの "postcss.config.cjs" ファイル、またはその他のPostCSSの設定ファイルに、"olayout" を追加してください。"autoprefixer" も一緒に利用することをお勧めします。
+       ```js {4-5}
+       // postcss.config.cjs
+       module.exports = {
+         plugins: [
+           require("@hilosiva/olayoutcss"),
+           require("autoprefixer"),
+        ],
+       };
+       ```
+    3. CSSファイルを用意<br />OlayoutのCSSが挿入されるCSSファイルを用意し、HTMLファイルにリンクしてください。
+       ```html {8}
+       // index.html
+       <!DOCTYPE html>
+       <html lang="ja">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+         <title>Olayout CSS</title>
+         <link rel="stylesheet" href="style.css">
+       </head>
+       <body>
+
+       </body>
+       </html>
+       ```
+    4. ビルドの開始<br />ViteやWebpackなどのローカルサーバーを立ち上げます。
+       ```zsh title="Terminal"
+       npm run dev
+       ```
+    5. Olayoutの開始<br />data-\*属性を活用したOlayout CSSによるレイアウトをお楽しみください。
+       ```html {11}
+       // index.html
+       <!DOCTYPE html>
+       <html lang="ja">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+         <title>Olayout CSS</title>
+         <link rel="stylesheet" href="style.css">
+       </head>
+       <body>
+         <h1 data-color="main">Olayout CSS</h1>
+       </body>
+       </html>
+       ```
   </TabItem>
 </Tabs>

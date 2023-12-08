@@ -1,8 +1,39 @@
 ---
-title: Browser Support
+title: ブラウザのサポート
 description: A reference page in my new Starlight docs site.
 ---
 
-最新のブラウザしか対応していません。
+Olayout はモダンブラウザしか対応していません。
 
- Autoprefixer の利用を推奨します。
+基本的には、Chrome、Firefox、Edge、Safariの最新の安定バージョンを対象としています。IE はどのバージョンもサポートしていません。
+
+- Chrome 86+
+- Firefox 85+
+- Edge 86+
+- Safari 15.4+
+
+---
+
+## ベンダープレフィックス
+
+Viteなどの開発環境をお使いの場合は、 [Autoprefixer](https://github.com/postcss/autoprefixer) によるベンダープレフィックス管理を推奨します。
+
+PostCSSを利用している場合は、npmやyarn、pnpmを使って "autoprefixer" をインストールしてください。
+
+```zsh title="Terminal"
+npm install autoprefixer -D
+```
+
+プロジェクトの "postcss.config.cjs" ファイル、またはその他のPostCSSの設定ファイルの、"plugins" の最後に "autoprefixer" を追加します。
+
+```js {5}
+// postcss.config.cjs
+module.exports = {
+  plugins: [
+    require("@hilosiva/olayoutcss"),
+    require("autoprefixer"),
+  ],
+};
+```
+
+サポート対象のブラウザの指定は、[Browserslist](https://github.com/browserslist/browserslist) にて設定してください。

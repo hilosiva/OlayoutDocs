@@ -1,22 +1,20 @@
 ---
-title: Configuration
+title: 構成
 description: A guide in my new Starlight docs site.
 ---
 
-OlayoutCSSの設定はJSファイルを利用します。
+Olayout CSS を使って効率よくWebページをレイアウトするには設定が大切になります。
+
+デザインカンプに合わせて、カンプサイズや、オフセット値、ブレイクポイント、色、書体などを設定しておけば、あらゆる場面で役に立ってくれると思います。
+
+デフォルトでは、以下の構成になっています。
 
 
-## 設定ファイル
-
-olayout.config.cjs
-
-
-```json [olayout.config.cjs]
+```js [olayout.config.cjs]
+// olayout.config.cjs
 module.exports = {
-  prefix: "ol",
   theme: {
     screens: {
-      min: "0",
       xxs: "375px",
       xs: "414px",
       sm: "576px",
@@ -31,14 +29,13 @@ module.exports = {
       "lg-offset": "10vw",
       "xl-offset": "15vw",
       "sm-content-width": 640,
-      "md-content-width": 768,
+      "md-content-width": 765,
       "lg-content-width": 1024,
       "xl-content-width": 1280,
       "xxl-content-width": 1440,
       "sm-design-width": 375,
       "md-design-width": 768,
       "lg-design-width": 1440,
-      "scrollbar-width": 0,
       space: 8,
     },
     colors: {
@@ -47,22 +44,485 @@ module.exports = {
       "accent-color": "#e4d558",
       "light-color": "#efefef",
       "dark-color": "#1c1c1c",
-      "primary-text-color": "#101010",
-      "light-text-color": "#fff",
+      "border-color-1": "#dedede",
+      "border-color-2": "#303030",
+      "border-color-3": "#fafafa",
+      "text-color-1": "#101010",
+      "text-color-2": "#606060",
+      "text-color-3": "#f0f0f0",
     },
     typos: {
-      "primary-font-set": '-apple-system, BlinkMacSystemFont, "Yu Gothic", sans-serif',
-      "en-font-set": '"Helvetica Neue", "Helvetica", "Arial", sans-serif',
+      "font-set-1": '-apple-system, BlinkMacSystemFont, "Yu Gothic", sans-serif',
+      "font-set-2": '"Helvetica Neue", "Helvetica", "Arial", sans-serif',
+      "font-set-3": '"Times New Roman", "YuMincho", "Yu Mincho", serif',
       "base-line-height": 1.5,
       "base-feature-settings": '"pkna"',
       "base-letter-spacing": "0.05em",
     },
+    effects: {
+      "shadow-1": "0 0 8px rgba(0, 0, 0, 0.16)",
+      "shadow-2": "2px 4px 24px -1px rgba(0, 0, 0, 0.1)",
+      "shadow-3": "8px 16px 32px -4px rgba(0, 0, 0, 0.05)",
+    },
     animations: {
       "scroll-behavior": "smooth",
-      "ease-out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+      easing: "cubic-bezier(0.16, 1, 0.3, 1)",
       duration: "0.6s",
     },
   },
 }
-
 ```
+
+
+---
+
+## 設定ファイルの作成
+
+PostCSS版では、プロジェクトのルート階層に、"olayout.config.cjs" ファイルを作成することで、デフォルトの設定を変更することが可能です。
+
+:::caution
+CDN版ではできません。
+:::
+
+最小限の設定ファイルの内容は以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    screens: {},
+    layout: {},
+    colors: {},
+    typos: {},
+    effects: {},
+    animations: {},
+  },
+}
+```
+
+この雛形をプロジェクトルートの、"olayout.config.cjs" にコピーして設定項目を変更してください。
+
+詳しくは、[構成オプション](#構成オプション)をご覧ください。
+
+
+## カスタムプロパティによる設定
+
+設定ファイルを利用せず、CSSのカスタムプロパティを利用して変更することもできます。
+ただしこちらの方法では、**ブレイクポイントの変更はできません。**
+
+
+カスタムプロパティによる変更は、CSSファイルの `:root` セレクタで行います。
+`screens` を除く 各設定オプション名に `ol-` 接頭辞を付けたものがカスタムプロパティ名になります。
+
+```css
+// style.css
+:root {
+  --ol-sm-offset: 2vw;
+  --ol-main-color: #c00;
+}
+```
+
+ただし、PostCSSを利用している場合は、設定ファイルによる変更をお勧めします。
+
+## 構成オプション
+
+### screens
+
+`screens` セクションはブレイクポイントの設定です。
+ブレイクポイントは `xxs` から `xxl` まで7つのキー（**ブレイクポイント名**）が定義されており、ここに指定された値がメディアクエリの `min-width` として設定されます。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    screens: {
+      xxs: "375px", // @media screen and (min-width: 375px) { ... }
+      xs: "414px", // @media screen and (min-width: 414px) { ... }
+      sm: "576px", // @media screen and (min-width: 576px) { ... }
+      md: "768px", // @media screen and (min-width: 768px) { ... }
+      lg: "1024px", // @media screen and (min-width: 1024px) { ... }
+      xl: "1280px", // @media screen and (min-width: 1280px) { ... }
+      xxl: "1480px", // @media screen and (min-width: 1480px) { ... }
+    },
+  },
+}
+```
+
+#### デフォルトの変更
+
+設定ファイルを利用して、デフォルトのブレークポイントを変更することが可能です。
+変更するには、`theme` の `screens` セクション内に設定を変更したいブレイクポイント名をキーとして、変更する値を指定してください。
+
+
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    screens: {
+      sm: "640px", // @media screen and (min-width: 640px) { ... }
+      xxl: "1536px", // @media screen and (min-width: 1536px) { ... }
+    },
+  },
+}
+```
+
+これにより、指定されたキーが上書きされ、設定を変更していないキーはデフォルトの値をキープします。
+
+
+### layout
+
+
+`layout` Webページのオフセット値やコンテンツの幅、デザインカンプのサイズの設定です。
+
+#### オフセット値
+
+ウインドウからWebページのコンテンツエリアまでのオフセット値の設定です。
+
+`sm-offset` から `xl-offset` までの4サイズが設定されており、ページや各セクションのコンテンツ幅によって使い分けることができます。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+   layout: {
+      "sm-offset": "2.5vw",
+      "md-offset": "5vw",
+      "lg-offset": "10vw",
+      "xl-offset": "15vw",
+    },
+  },
+}
+```
+
+#### コンテンツの幅
+
+コンテンツエリアの幅の設定です。
+
+`sm-content-width` から `xl-content-width` までの5サイズが設定されており、ページや各セクションの固定幅や最大幅を指定するなどに利用されます。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+   layout: {
+      "sm-content-width": 640,
+      "md-content-width": 765,
+      "lg-content-width": 1024,
+      "xl-content-width": 1280,
+      "xxl-content-width": 1440,
+    },
+  },
+}
+```
+
+#### デザインカンプの幅
+
+デザインカンプのアートボード幅の設定です。
+
+`sm-design-width` から `lg-design-width` までの3サイズが設定されており、ビューポートや、vwの値を計算する際などに利用されます。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+   layout: {
+      "sm-design-width": 375, // スマホのデザインカンプのサイズ
+      "md-design-width": 768, // タブレットのデザインカンプサイズ
+      "lg-design-width": 1440, // PCのデザインカンプのサイズ
+    },
+  },
+}
+```
+
+#### スペース量の基準値
+
+`margin` や `padding`、`gap` などを指定する際の基準の設定です。
+
+各スペースの大きさは、この設定値の倍数で指定されます。
+例えばこの基準値が "8" で、スペース値を "3" に指定した場合は、8 * 3 の "24px" がスペースの大きさとなります。
+
+デフォルトは `8` になります。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+   layout: {
+      space: 8, // 8の倍数
+    },
+  },
+}
+```
+
+#### デフォルトの変更
+
+設定ファイルを利用して、デフォルトの値を変更することができます。変更するには、`theme` の `layout` セクション内に設定を変更したいキーを使って、値を変更してください。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    layout: {
+      "md-offset": "7vw",
+      "xxl-content-width": 1500,
+      "sm-design-width": 320, // スマホのデザインカンプの横幅: 320px
+      space: 10, // 10の倍数
+    },
+  },
+}
+```
+
+
+CDNを利用している場合は、カスタムプロパティを使って変更することができます。
+
+```css
+// style.css
+
+:root {
+  --ol-md-offset: 7vw;
+  --ol-xxl-content-width: 1500;
+  --ol-sm-design-width: 320; /* スマホのデザインカンプの横幅: 320px */
+  --ol-space: 10; /* 10の倍数 */
+}
+```
+これにより、指定されたキーが上書きされ、設定を変更していないキーはデフォルトの値をキープします。
+
+### colors
+
+`colors` セクションは各種カラーの設定です。
+Webサイト内で利用するカラーが設定できます。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    colors: {
+      "base-color": "#fff", // ベースカラー
+      "main-color": "#116ec5", // メインカラー
+      "accent-color": "#e4d558", // アクセントカラー
+      "light-color": "#efefef", // ライトカラー
+      "dark-color": "#1c1c1c", // ダークカラー
+      "border-color-1": "#dedede", // 1番目によく使うボーダーカラー
+      "border-color-2": "#303030", // 2番目に使うボーダーカラー
+      "border-color-3": "#fafafa", // 3番目に使うボーダーカラー
+      "text-color-1": "#101010", // 1番目によく使うテキストカラー
+      "text-color-2": "#606060", // 2番目に使うテキストカラー
+      "text-color-3": "#f0f0f0", // 3番目に使うテキストカラー
+    },
+  },
+}
+```
+
+
+#### デフォルトの変更
+
+設定ファイルを利用して、デフォルトの値を変更することができます。変更するには、`theme` の `colors` セクション内に設定を変更したいキーを使って、値を変更してください。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    colors: {
+      "base-color": "#f0f0f0", // ベースカラー
+      "main-color": "#d53871", // メインカラー
+      "text-color-2": "#999", // 2番目に使うテキストカラー
+    },
+  },
+}
+```
+
+
+CDNを利用している場合は、カスタムプロパティを使って変更することができます。
+
+```css
+// style.css
+
+:root {
+  --ol-base-color: #f0f0f0; /* ベースカラー */
+  --ol-main-color: #d53871; /* メインカラー */
+  --ol-text-color-2: #999;  /* 2番目に使うテキストカラー */
+}
+```
+
+
+これにより、指定されたキーが上書きされ、設定を変更していないキーはデフォルトの値をキープします。
+
+### typos
+
+`typos` セクションは文字に関する設定です。
+Webサイト内で利用する書体や行の高さ、文字間が設定できます。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    typos: {
+      "font-set-1": '-apple-system, BlinkMacSystemFont, "Yu Gothic", sans-serif', // メインの書体
+      "font-set-2": '"Helvetica Neue", "Helvetica", "Arial", sans-serif', // 2番目の書体
+      "font-set-3": '"Times New Roman", "YuMincho", "Yu Mincho", serif', // 3番目の書体
+      "base-line-height": 1.5, // 基本となる行の高さ
+      "base-feature-settings": '"pkna"', // プロポーショナルメトリクスによる文字詰め
+      "base-letter-spacing": "0.05em", // 基本となるトラッキング
+    },
+  },
+}
+```
+
+
+#### デフォルトの変更
+
+設定ファイルを利用して、デフォルトの値を変更することができます。変更するには、`theme` の `typos` セクション内に設定を変更したいキーを使って、値を変更してください。
+
+:::note
+Webフォントを利用する場合は別途読み込みが必要です。
+:::
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    typos: {
+      "font-set-1": '"Noto Sans JP", sans-serif', // メインの書体
+      "font-set-2": '"Hedvig Letters Sans", sans-serif', // 2番目の書体
+      "font-set-3": '"Lora", serif', // 3番目の書体
+      "base-line-height": 2, // 基本となる行の高さ
+      "base-feature-settings": '"palt"', // プロポーショナルメトリクスによる文字詰め
+    },
+  },
+}
+```
+
+
+CDNを利用している場合は、カスタムプロパティを使って変更することができます。
+
+```css
+// style.css
+
+:root {
+  --ol-font-set-1: "Noto Sans JP", sans-serif; /* メインの書体 */
+  --ol-font-set-2: "Hedvig Letters Sans", sans-serif; /* 番目の書体 */
+  --ol-font-set-3: "Lora", serif;  /* 3番目の書体 */
+  --ol-base-line-height: 2;  /* 基本となる行の高さ */
+  --ol-base-feature-settings: "palt";  /* プロポーショナルメトリクスによる文字詰め */
+}
+```
+
+
+これにより、指定されたキーが上書きされ、設定を変更していないキーはデフォルトの値をキープします。
+
+### effects
+
+`effects` セクションはドロップシャドウなどの設定です。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    effects: {
+      "shadow-1": "0 0 8px rgba(0, 0, 0, 0.16)", // 小さなドロップシャドウ
+      "shadow-2": "2px 4px 24px -1px rgba(0, 0, 0, 0.1)", // 中ぐらいのドロップシャドウ
+      "shadow-3": "8px 16px 32px -4px rgba(0, 0, 0, 0.05)", // 大きなドロップシャドウ
+    },
+  },
+}
+```
+
+
+#### デフォルトの変更
+
+設定ファイルを利用して、デフォルトの値を変更することができます。変更するには、`theme` の `effects` セクション内に設定を変更したいキーを使って、値を変更してください。
+
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    effects: {
+      "shadow-1": "0 4px 8px -2px rgba(200, 0, 0, 0.16)",
+    },
+  },
+}
+```
+
+
+CDNを利用している場合は、カスタムプロパティを使って変更することができます。
+
+```css
+// style.css
+
+:root {
+  --ol-shadow-1: 0 4px 8px -2px rgba(200, 0, 0, 0.16); /* 小さなドロップシャドウ */
+}
+```
+
+
+これにより、指定されたキーが上書きされ、設定を変更していないキーはデフォルトの値をキープします。
+
+### animations
+
+`animations` セクションはトランジションなどのアニメーションに関する設定です。
+
+サイト内で利用するイージングやデュレーションを設定します。
+
+デフォルトは以下のとおりです。
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    animations: {
+      "scroll-behavior": "smooth", // スクロールをシュルシュルする
+      easing: "cubic-bezier(0.16, 1, 0.3, 1)", // ease-out-expo
+      duration: "0.6s",
+    },
+  },
+}
+```
+
+
+#### デフォルトの変更
+
+設定ファイルを利用して、デフォルトの値を変更することができます。変更するには、`theme` の `animations` セクション内に設定を変更したいキーを使って、値を変更してください。
+
+
+```js [olayout.config.cjs]
+// olayout.config.cjs
+module.exports = {
+  theme: {
+    animations: {
+      easing: "cubic-bezier(0, 1, 0, 1)",
+      duration: "0.3s",
+    },
+  },
+}
+```
+
+
+CDNを利用している場合は、カスタムプロパティを使って変更することができます。
+
+```css
+// style.css
+
+:root {
+  --ol-easing: cubic-bezier(0, 1, 0, 1);
+  --ol-duration: 0.3s;
+}
+```
+
+
+これにより、指定されたキーが上書きされ、設定を変更していないキーはデフォルトの値をキープします。
