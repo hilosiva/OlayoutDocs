@@ -4,25 +4,88 @@ description: A guide in my new Starlight docs site.
 ---
 
 Olayout CSSは、ブラウザの初期スタイルをリセットします。
-リセットには、[Oreset.css](https://github.com/hilosiva/oreset.css) を利用しています。
-
-
----
-
-## 全ての要素は `border-box`
+リセットには、俺流のリセットCSSである、[Oreset.css](https://github.com/hilosiva/oreset.css) を利用しています。
 
 ## 特徴
-
-
-- `:where()` を使って詳細度を限りなく低くキープ
 - 全ての要素は `box-sizing: border-box`
 - 不必要な `margin` 、 `padding、` `border` を排除
 - 文字サイズのリセットは行わない
+- `:where()` を使って詳細度を限りなく低くキープ
 - `font-feature-settings` による文字詰め
 - `line-height`は `1.5` をデフォルトにする
 - `html` 要素に `scroll-behavior: smooth` を指定
 - アクセシビリティに考慮（視差効果など）
 
+
+
+---
+
+## 余白のリセットと `border-box`
+
+Olayout CSSは、すべての要素の `margin` と `padding` をリセットします。
+また、`box-sizing` も `border-box` に設定します。
+
+```css
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+
+
+## 文字サイズのリセットは行わない
+
+Olayout CSSでは、文字サイズのリセットは行いません。
+これによりスタイルを指定し忘れた見出しであっても、見出しが通常のテキストのように見えることを防げます。
+
+
+```css
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+```
+
+
+
+## `:where()` を使って詳細度を限りなく低くキープ
+リセットのCSSは、他のすべてのスタイルがカスケードできるように詳細度は低くキープしておくほうがよかったります。
+
+Olayout CSSでは、`:where()` を使って詳細度が上がらない工夫をしています。
+
+
+```css ":where(html)"
+:where(html) {
+  block-size: 100%;
+  scroll-behavior: var(--#{$prefix}-scroll-behavior);
+  -webkit-text-size-adjust: none;
+}
+```
+
+
+
+## `font-feature-settings` による文字詰め
+
+Webでも文字詰めはこだわりたいと思います。
+Olayoutでは、デフォルトでは `font-feature-settings: "pkna"` を使ってプロポーショナルメトリクスによる文字詰めを行います。
+
+変更する場合は、[文字関連のカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#typos)を参照してください。
+
+```css {8}
+:where(body) {
+  min-block-size: 100%;
+  text-rendering: optimizeLegibility;
+  color: var(--#{$prefix}-text-color-1);
+  background-color: var(--#{$prefix}-base-color);
+  line-height: var(--#{$prefix}-base-line-height);
+  font-family: var(--#{$prefix}-font-set-1);
+  font-feature-settings: var(--#{$prefix}-base-feature-settings);
+  -webkit-font-smoothing: antialiased;
+}
+
+```
 
 
 ```css

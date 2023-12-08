@@ -29,9 +29,17 @@ export default defineConfig({
           label: "Guides",
           items: [
             { label: "Configuration", link: "/guides/configuration/" },
-            { label: "Base Styles", link: "/guides/base-styles/" },
-            { label: "Media Queries", link: "/guides/media-queries/" },
+            { label: "Responsive Design", link: "/guides/responsive-design/" },
+            { label: "Functions", link: "/guides/functions/" },
           ],
+        },
+        {
+          label: "Base Styles",
+          items: [{ label: "Reset", link: "/base-styles/reset/" }],
+        },
+        {
+          label: "Layout",
+          autogenerate: { directory: "layout" },
         },
         {
           label: "Reference",

@@ -5,9 +5,13 @@ description: A reference page in my new Starlight docs site.
 
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSSファイルに移動せず、マークアップしながらカスタムデータ属性でWebページのレイアウトがをすることにフォーカスしています。
+Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSSファイルに移動せず、マークアップしながらカスタムデータ属性でWebページをレイアウトすることにフォーカスしています。
 
-ユーティリティファーストなコーディングを行いたい場合は、確実に [Tailwind CSS](https://tailwindcss.com/) などのフレームワークの方が便利です。
+Webサイト制作のコーディングを担当しているコーダーさんが、Webデザイナーさんから頂いたデザインカンプに合わせて要素を配置する時に、Olayoutは力を発揮すると思います。
+
+ただ、ユーティリティファーストなコーディングを行いたい場合は、**確実に** [Tailwind CSS](https://tailwindcss.com/) などのフレームワークの方が便利です。
+
+
 
 ## インストール
 
@@ -28,7 +32,7 @@ Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSS
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.0/cdn/olayout.min.css">
        </head>
        <body>
-         <h1 data-color="main">Olayout CSS</h1>
+
        </body>
        </html>
        ```
@@ -44,7 +48,7 @@ Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSS
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.0/cdn/olayout.min.css">
        </head>
        <body>
-         <h1 data-color="main">Olayout CSS</h1>
+         <h1 data-font="xlarge" data-color="main">Olayout CSS</h1>
        </body>
        </html>
        ```
@@ -123,7 +127,7 @@ Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSS
          <link rel="stylesheet" href="style.css">
        </head>
        <body>
-         <h1 data-color="main">Olayout CSS</h1>
+         <h1 data-font="xlarge" data-color="main">Olayout CSS</h1>
        </body>
        </html>
        ```
