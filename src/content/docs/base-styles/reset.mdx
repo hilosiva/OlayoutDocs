@@ -4,7 +4,7 @@ description: A guide in my new Starlight docs site.
 ---
 
 Olayout CSSは、ブラウザの初期スタイルをリセットします。
-リセットには、俺流のリセットCSSである、[Oreset.css](https://github.com/hilosiva/oreset.css) を利用しています。
+リセットには、俺流のリセットCSSである、[Oreset.css](https://github.com/hilosiva/oreset.css) をOlayout用にカスタムして利用しています。
 
 ## 特徴
 - 全ての要素は `box-sizing: border-box`
@@ -68,7 +68,8 @@ Olayout CSSでは、`:where()` を使って詳細度が上がらない工夫を�
 
 ## `font-feature-settings` による文字詰め
 
-Webでも文字詰めはこだわりたいと思います。
+Webでも文字詰めはこだわりたいですよね。
+
 Olayoutでは、デフォルトでは `font-feature-settings: "pkna"` を使ってプロポーショナルメトリクスによる文字詰めを行います。
 
 変更する場合は、[文字関連のカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#typos)を参照してください。
@@ -86,6 +87,31 @@ Olayoutでは、デフォルトでは `font-feature-settings: "pkna"` を使っ�
 }
 
 ```
+
+
+# line-hight のデフォルトは1.5
+
+デフォルトの行の高さは、アクセシビリティや可読性を考慮して、1.5 に設定しています。
+
+変更する場合は、[文字関連のカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#typos)を参照してください。
+
+
+# `html` 要素に `scroll-behavior: smooth` を指定
+
+html要素には、デフォルトで`scroll-behavior: smooth`を指定していらため、ページ内リンクなどでは、シュルシュルとアニメーションで移動します。
+
+変更する場合は、[アニメーションのカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/# animations)を参照してください。
+
+
+
+# アクセシビリティに考慮
+
+OSの視差効果を軽減するオプションを有効にしている場合には、CSSにアニメーションを無効にしたり、フォーカス時のフォーカスリングは削除しないなど、アクセシビリティにも、考慮しています。
+
+
+
+おまけとして、form要素の外で、type属性を指定してないbutton要素を使っている場合、そのボタンに警告が表示されるようにもしています。
+
 
 
 ```css
