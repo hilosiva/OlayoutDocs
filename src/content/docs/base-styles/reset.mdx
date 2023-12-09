@@ -20,7 +20,7 @@ Olayout CSSは、ブラウザの初期スタイルをリセットします。
 
 ---
 
-## 余白のリセットと `border-box`
+## 余白のリセットとborder-box
 
 Olayout CSSは、すべての要素の `margin` と `padding` をリセットします。
 また、`box-sizing` も `border-box` に設定します。
@@ -50,23 +50,30 @@ Olayout CSSでは、文字サイズのリセットは行いません。
 
 
 
-## `:where()` を使って詳細度を限りなく低くキープ
+## 詳細度を限りなく低く
 リセットのCSSは、他のすべてのスタイルがカスケードできるように詳細度は低くキープしておくほうがよかったります。
 
 Olayout CSSでは、`:where()` を使って詳細度が上がらない工夫をしています。
 
 
-```css ":where(html)"
-:where(html) {
-  block-size: 100%;
-  scroll-behavior: var(--ol-scroll-behavior);
-  -webkit-text-size-adjust: none;
+```css ":where(hr)" ":where(ul, ol)"
+:where(hr) {
+  border: none;
+  border-block-start: 1px solid;
+  color: inherit;
+  block-size: 0;
+  overflow: visible;
 }
+
+:where(ul, ol) {
+  list-style: none;
+}
+
 ```
 
 
 
-## `font-feature-settings` による文字詰め
+## プロポーショナルメトリクスで文字詰め
 
 Webでも文字詰めはこだわりたいですよね。
 
@@ -88,9 +95,9 @@ Olayoutでは、デフォルトでは `font-feature-settings: "pkna"` を使っ�
 ```
 
 
-# line-hight のデフォルトは1.5
+## line-hight のデフォルトは1.5
 
-デフォルトの行の高さは、アクセシビリティや可読性を考慮して、1.5 に設定しています。
+デフォルトの行の高さは、アクセシビリティや可読性を考慮して、`1.5` に設定しています。
 
 変更する場合は、[文字関連のカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#typos)を参照してください。
 
@@ -108,13 +115,13 @@ Olayoutでは、デフォルトでは `font-feature-settings: "pkna"` を使っ�
 ```
 
 
-# `html` 要素に `scroll-behavior: smooth` を指定
+## シュルシュルアニメーション
 
-html要素には、デフォルトで`scroll-behavior: smooth`を指定していらため、ページ内リンクなどでは、シュルシュルとアニメーションで移動します。
+`html`要素には、デフォルトで`scroll-behavior: smooth`を指定していらため、ページ内リンクなどでは、シュルシュルとアニメーションで移動します。
 
-変更する場合は、[アニメーションのカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/# animations)を参照してください。
+変更する場合は、[アニメーションのカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#animations) を参照してください。
 
-```css {3} ":where(html)"
+```css {3}
 :where(html) {
   block-size: 100%;
   scroll-behavior: var(--ol-scroll-behavior);
@@ -140,7 +147,7 @@ OSの視差効果を軽減するオプションを有効にしている場合に
 ```
 
 
-おまけとして、form要素の外で、type属性を指定してないbutton要素を使っている場合、そのボタンに警告が表示されるようにもしています。
+おまけとして、`form`要素の外で、`type`属性を指定してない`button`要素を使っている場合、そのボタンに警告が表示されるようにもしています。
 
 
 ```css

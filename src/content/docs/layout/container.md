@@ -1,9 +1,15 @@
 ---
-title: container
+title: Container
 description: A reference page in my new Starlight docs site.
 ---
 
-ボックスのコンテナーを設定することができる属性です。
+ボックスのコンテナーを設定するには、`data-container` 属性が便利です。`data-container` 属性を指定すると両サイドに `padding` を使ったオフセット（余白）が指定され（デフォルト： `5vw`  ）、コンテンツがセンタリングされます。
+
+Webページ全体のセンタリングや、セクション内のコンテンツのセンタリング、固定幅を設定してコンテンツを右端揃えにするなどに活用してください。
+
+
+
+<iframe src="/olayout-docs/demo/container/demo-1.html"></iframe>
 
 
 ```html
@@ -12,90 +18,309 @@ description: A reference page in my new Starlight docs site.
 </div>
 ```
 
+ `data-max-width` 属性と組み合わせることで、コンテナーボックスが指定した最大幅以上にはならないように制限することができます。
 
-## Offset
+<iframe src="/olayout-docs/demo/container/demo-2.html"></iframe>
+
+
+```html "data-max-width="small sm:medium""
+<div data-container data-max-width="small sm:medium">
+  ...
+</div>
+```
+
+
+最大幅については、[data-max-width属性のドキュメント](/olayout-docs/layout/max-width/)を参照してください。
+
+---
+
+## コンテナーの位置
+
+`data-container` 属性の属性値には、 `data-max-width` 属性と組み合わせたコンテナーが最大幅となった時の位置を指定することができます。
+
+デフォルトではセンタリングされるようになっています。
+
+<table>
+ <thead>
+   <tr>
+      <th>属性名</th>
+      <th>属性値</th>
+      <th>説明</th>
+   </tr>
+ </thead>
+ <tbody>
+<tr>
+<td rowspan="3">
+
+`data-container`
+</td>
+<td>
+
+ `left`
+</td>
+<td>
+
+最大幅のコンテナーを左に配置する
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `center`
+</td>
+<td>
+
+最大幅のコンテナーをセンタリングする <small>（初期値）</small>
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `right`
+</td>
+<td>
+
+最大幅のコンテナーを右に配置
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<iframe src="/olayout-docs/demo/container/demo-3.html" style="min-height: 400px"></iframe>
+
+
+```html "sm:right" "sm:left"
+<div data-container="sm:right" data-max-width="small sm:medium">
+  ...
+</div>
+<div data-container="sm:left" data-max-width="small sm:medium">
+  ...
+</div>
+```
+
+
+---
+
+## オフセット
 
 `data-offset` 属性を使って、左右の余白量を変更することができます。
 デフォルトは、`medium` が設定されています。
 
 
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-offset` | `small` | 左右のオフセット値を `small` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset` | `medium` <small>（初期値 ）</small> | 左右のオフセット値 `medium` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset` | `large` | 左右のオフセット値 `large` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset` | `xlarge` | 左右のオフセット値 `xlarge` にする<br><small>（デフォルト： `2.5vw` ）</small> |
-| `data-offset` | `none` | 左右のオフセット値を `0` にする<br><small>（デフォルト： `2.5vw` ）</small> |
-| `data-offset-left` | `small` | 左のオフセット値 `small` にする<br><small>（デフォルト： `2.5vw` ）</small> |
-| `data-offset-left` | `medium` | 左のオフセット値 `medium` にする<br><small>（デフォルト： `2.5vw` ）</small> |
-| `data-offset-left` | `large` | 左のオフセット値 `large` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset-left` | `xlarge` | 左のオフセット値 `xlarge` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset-left` | `none` | 左のオフセット値 `0` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset-right` | `small` | 右のオフセット値 `small` にする<br><small>（デフォルト： `2.5vw` ）</small> |
-| `data-offset-right` | `medium` | 右のオフセット値 `medium` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset-right` | `large` | 右のオフセット値 `large` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset-right` | `xlarge` | 右のオフセット値 `xlarge` にする<br><small>（デフォルト： `2.5vw` ）</small>|
-| `data-offset-right` | `none` | 右のオフセット値 `0` にする<br><small>（デフォルト： `2.5vw` ）</small>|
+<table>
+ <thead>
+   <tr>
+      <th>属性名</th>
+      <th>属性値</th>
+      <th>説明</th>
+   </tr>
+ </thead>
+ <tbody>
+<tr>
+<td rowspan="5">
+
+`data-offset`
+</td>
+<td>
+
+ `none`
+</td>
+<td>
+
+左右のオフセット値を `0` にする
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `small`
+</td>
+<td>
+
+左右のオフセット値を `small` <small>（ `2.5vw` ）</small>にする
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `medium`
+</td>
+<td>
+
+左右のオフセット値を `medium` <small>（ `5vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `large`
+</td>
+<td>
+
+左右のオフセット値を `large` <small>（ `10vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `xlarge`
+</td>
+<td>
+
+左右のオフセット値を `xlarge` <small>（ `15vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td rowspan="5">
+
+`data-offset-left`
+</td>
+<td>
+
+ `none`
+</td>
+<td>
+
+左のオフセット値を `0` にする
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `small`
+</td>
+<td>
+
+左のオフセット値を `small` <small>（ `2.5vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `medium`
+</td>
+<td>
+
+左のオフセット値を `medium` <small>（ `5vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `large`
+</td>
+<td>
+
+左のオフセット値を `large` <small>（ `10vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `xlarge`
+</td>
+<td>
+
+左のオフセット値を `xlarge` <small>（ `15vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td rowspan="5">
+
+`data-offset-right`
+</td>
+<td>
+
+ `none`
+</td>
+<td>
+
+右のオフセット値を `0` にする
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `small`
+</td>
+<td>
+
+右のオフセット値を `small` <small>（ `2.5vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `medium`
+</td>
+<td>
+
+右のオフセット値を `medium` <small>（ `5vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `large`
+</td>
+<td>
+
+右のオフセット値を `large` <small>（ `10vw` ）</small>にする
+</td>
+</tr>
+<tr>
+<td>
+
+ `xlarge`
+</td>
+<td>
+
+右のオフセット値を `xlarge` <small>（ `15vw` ）</small>にする
+</td>
+</tr>
 
 
-```html
-<div data-container data-offset="small lg:large">
+ </tbody>
+ </table>
+
+
+<small>※. () 内はデフォルト値</small>
+
+ブレイクポイントに合わせて余白のサイズを変更することもできます。
+
+<iframe src="/olayout-docs/demo/container/demo-4.html" height="300"></iframe>
+
+
+
+```html "data-offset="small sm:large lg:xlarge""
+<div data-container data-offset="small sm:large lg:xlarge">
   ...
 </div>
 ```
 
+余白をなくしたり、左だけ、右だけのように、片側だけ余白を指定することもできます。
 
-## Max
+<iframe src="/olayout-docs/demo/container/demo-5.html" style="height: 600px"></iframe>
 
-`data-max` 属性を使って、コンテナーの最大幅を変更することができます。
-
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-max` | `small` | 最大幅を `small` にする |
-| `data-offset` | `medium` | 最大幅 `medium` にする|
-| `data-offset` | `large` | 最大幅 `large` にする|
-| `data-offset` | `xlarge` | 最大幅 `xlarge` にする|
-| `data-offset` | `xxlarge` | 最大幅 `xlarge` にする|
-| `data-offset` | `none` | 最大幅を設定しない|
 
 
 ```html
-<div data-container data-max="large">
+<div data-container data-offset="none" data-offset-left="xxs:medium">
+  ...
+</div>
+<div data-container data-offset="none" data-offset-right="xxs:medium">
   ...
 </div>
 ```
 
-## Align
+オフセット値をカスタマイズする場合は、[レイアウトのカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#layout)を参照してください。
 
-`data-container` 属性を使って、コンテナーの位置揃えができます。
-
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-container` | `left` | 左揃え |
-| `data-container` | `center` | 中央揃え |
-| `data-container` | `right` | 右揃え |
-
-```html
-<div data-container="center lg:right" data-max="large">
-  ...
-</div>
-```
-
-## Over
-
-`data-over` 属性を使って、コンテナーを超えて要素を配置することが出来ます。
-
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-over` | `left` | 左側のコンテナーを超える |
-| `data-over` | `right` | 右側のコンテナーを超える |
-| `data-over` | `both` | 両側のコンテナーを超える |
-| `data-over` | `clearLeft` | 超えた左側のコンテナーを戻す |
-| `data-over` | `clearRight` | 超えた右側のコンテナーを戻す |
-| `data-over` | `clearBoth` | 超えた両側のコンテナーを戻す |
-
-```html
-<div data-container data-over="left">
-  ...
-</div>
-```
+---
