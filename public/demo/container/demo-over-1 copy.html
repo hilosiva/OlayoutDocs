@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Container | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/app.js" defer></script>
+
+    <style>
+      [data-aspect="hero"] {
+        --ol-aspect: 1.414 / 1;
+      }
+
+      @media screen and (min-width: 576px) {
+        [data-aspect="hero"] {
+          --ol-aspect: 3 / 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-container data-offset="sm:xlarge" class="bg-padding-area">
+      <div data-bg="base" data-py="2" data-space-y="2">
+        <h1>Olayout Demo</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+          mus.
+        </p>
+
+        <div data-over="both sm:clear" data-my="4">
+          <figure data-aspect="hero">
+            <img src="../assets/img/cover-1.jpg" data-object="cover" style="--ol-object-position-y: bottom" alt="" decoding="async" width="960" height="641" />
+          </figure>
+        </div>
+
+        <div data-grid data-cols="1 sm:2" data-gap="2 sm:3" data-my="4">
+          <div data-over="both sm:left">
+            <figure data-aspect="16/9">
+              <img src="../assets/img/cover-2.jpg" data-object="cover" alt="" decoding="async" width="960" height="641" />
+            </figure>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+              mus.
+            </p>
+          </div>
+        </div>
+
+        <div data-grid data-cols="1 sm:2" data-gap="2 sm:3" data-my="4">
+          <div data-over="both sm:right" data-order="sm:1">
+            <figure data-aspect="16/9">
+              <img src="../assets/img/cover-3.jpg" data-object="cover" alt="" decoding="async" width="960" height="641" />
+            </figure>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+              mus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

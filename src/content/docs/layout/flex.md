@@ -1,26 +1,49 @@
 ---
-title: flex
+title: Flexbox
 description: A reference page in my new Starlight docs site.
 ---
 
-Flexboxを用いたレイアウト用属性。
-`data-flex` を使うか、`data-display="flex"` を使ってフレックスボックスを利用できます。
+Flexboxを用いたレイアウト用の属性です。
+`data-flex` 属性か、`data-display="flex"` 属性を使うとフレックスボックスを利用できます。
 
+`data-flex` 属性は**ブレイクポイントごとにflexの有無を切り替えることはできない** ため、ブレイクポイントを利用して flex の有無を切り替える場合は、`data-display` 属性を利用してください。
 
-```html
-<div data-flex>
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
-</div>
-```
-
+`data-display` 属性の詳細については、[data-display属性のドキュメント](/olayout-docs/layout/display/)を参照してください。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
 | `data-flex` | - | フレックスボックスにする |
 
-※. `data-flex` 属性はブレイクポイントによっての切り替えは出来ません。ブレイクポイントを利用して、flexを有無を切り替える場合は、`data-display="flex"` 属性を利用してください。
+
+
+`data-flex` 属性または、`data-display="flex"` 属性を使うと、子要素たちが横に並びます。
+
+<iframe src="/olayout-docs/demo/flex/demo-1.html" style="min-height: auto; height: 8rem"></iframe>
+
+
+```html "data-flex"
+// index.html
+<div data-flex>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+`data-gap`属性と合わせることで、各アイテム感の余白を指定できます。
+
+<iframe src="/olayout-docs/demo/flex/demo-2.html" style="min-height: auto; height: 8rem"></iframe>
+
+
+```html "data-gap="2""
+// index.html
+<div data-flex data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
 
 
 ## 折返しと方向

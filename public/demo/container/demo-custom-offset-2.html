@@ -4,18 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
     <title>Container | Olayout Demo</title>
-
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script src="../assets/js/app.js" defer></script>
     <style>
-      :root {
-        --ol-sm-content-width: 240;
-        --ol-md-content-width: 414;
+      [data-offset="my-offset"] {
+        --ol-container-left-offset: 8vw;
+        --ol-container-right-offset: 8vw;
+      }
+
+      @media screen and (min-width: 768px) {
+        [data-offset="my-offset"] {
+          --ol-container-left-offset: 4vw;
+          --ol-container-right-offset: 4vw;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        [data-offset="my-offset"] {
+          --ol-container-left-offset: 2vw;
+          --ol-container-right-offset: 2vw;
+        }
       }
     </style>
   </head>
   <body>
-    <div data-container data-max-width="medium" class="bg-padding-area">
+    <div data-container data-offset="my-offset" class="bg-padding-area">
       <div data-bg="base" data-min-height="device" data-py="2" data-space-y="2">
         <h1>Olayout Demo</h1>
         <p>
