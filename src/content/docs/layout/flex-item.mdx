@@ -10,7 +10,8 @@ description: A reference page in my new Starlight docs site.
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
 | `data-flex-item` | - | フレックスアイテム |
-
+| `data-grow` | 伸び率（最大: 3） | 伸び率の指定（初期値: 0） |
+| `data-shrink` | 縮み率（最大: 3） | 縮み率の指定（初期値: 0） |
 
 ---
 
@@ -38,10 +39,6 @@ description: A reference page in my new Starlight docs site.
 
 `data-grow` 属性を利用することで、フレックスコンテナー内の主軸方向に余っている余白を、フレックスアイテムにどれだけ割り当てるかを指定できます。
 
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-grow` | 伸び率（最大: 3） | 伸び率の指定（初期値: 0） |
-
 
 <iframe src="/olayout-docs/demo/flex-item/demo-grow-1.html" style="min-height: 8rem; height: 8rem"></iframe>
 
@@ -58,11 +55,6 @@ description: A reference page in my new Starlight docs site.
 ### 縮み率
 
 `data-shrink` 属性を利用することで、フレックスコンテナー内の主軸方向に超えてしまったアイテムの大きさを、フレックスアイテムがどれだけ縮小できるかを指定できます。
-
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-shrink` | 縮み率（最大: 3） | 縮み率の指定（初期値: 0） |
-
 
 <iframe src="/olayout-docs/demo/flex-item/demo-shrink-1.html" style="min-height: 8rem; height: 8rem"></iframe>
 

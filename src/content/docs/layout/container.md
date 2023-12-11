@@ -7,6 +7,8 @@ Webページやセクションを包む要素に使用します。
 
 Webページ全体のセンタリングや、セクション内のコンテンツのセンタリング、固定幅を設定してコンテンツを右端揃えにするなどに活用してください。
 
+コンテナー内に配置した要素を、コンテナーから飛び出すこともできます。
+
 <table>
  <thead>
    <tr>
@@ -52,82 +54,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 最大幅のコンテナーを右に配置
 </td>
 </tr>
-
-</tbody>
-</table>
-
----
-
-## 基本的な使い方
-
-`data-container` 属性を指定すると両サイドに `padding` を使ったオフセット（余白）が指定され（デフォルト： `5vw`  ）、コンテンツがセンタリングされます。
-
-
-
-
-<iframe src="/olayout-docs/demo/container/demo-1.html"></iframe>
-
-
-```html "data-container"
-// index.html
-<div data-container>
-  ...
-</div>
-```
-
-### 最大幅の指定
-
- `data-max-width` 属性と組み合わせることで、コンテナーボックスが指定した最大幅以上にはならないように制限することができます。
-
-<iframe src="/olayout-docs/demo/container/demo-2.html"></iframe>
-
-
-```html "data-max-width="medium""
-// index.html
-<div data-container data-max-width="medium">
-  ...
-</div>
-```
-
-
-最大幅については、[data-max-width属性のドキュメント](/olayout-docs/layout/max-width/)を参照してください。
-
-
-
-### コンテナーの位置
-
-`data-max-width` 属性と組み合わせたコンテナーが最大幅となった時の、コンテナーの位置を指定するには、`data-container` 属性に位置を表す値を指定してください。デフォルトではセンタリングされるようになっていますが、これにより**オフセット値をキープしながら**最大幅のコンテナーを右や左に配置できます。
-
-<iframe src="/olayout-docs/demo/container/demo-align-1.html" style="min-height: 400px"></iframe>
-
-
-```html "right" "left"
-// index.html
-<div data-container="right" data-max-width="medium">
-  ...
-</div>
-<div data-container="left" data-max-width="medium">
-  ...
-</div>
-```
-
-
-
-### オフセット
-
-`data-offset` 属性を使って、左右のオフセット値（余白量）を切り替えることができます。
-デフォルトは、`medium` が設定されています。
-
-
-<table>
- <thead>
-   <tr>
-      <th>属性名</th>
-      <th>属性値</th>
-      <th>説明</th>
-   </tr>
- </thead>
- <tbody>
+<tr>
 <tr>
 <td rowspan="5">
 
@@ -294,60 +221,6 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 右のオフセット値を `xlarge` <small>（ `15vw` ）</small>にする
 </td>
 </tr>
-
-
-</tbody>
-</table>
-
-<small>() 内はデフォルト値</small>
-
-オフセット値を切り替えたい時や、左右で別々のオフセット値を設定したい時に利用できます。
-
-<iframe src="/olayout-docs/demo/container/demo-offset-1.html"></iframe>
-
-
-
-```html "data-offset="large""
-// index.html
-<div data-container data-offset="large">
-  ...
-</div>
-```
-
-左右で別々のオフセット値を指定することもできます。
-
-これで写真を右端に揃えることだってできますね。
-
-
-<iframe src="/olayout-docs/demo/container/demo-offset-2.html"></iframe>
-
-
-```html "data-offset-left="xlarge"" "data-offset-right="none""
-// index.html
-<div data-container data-offset-left="xlarge" data-offset-right="none">
-  ...
-</div>
-```
-
-
-
-### コンテナーを飛び越える
-
-
-コンテナー内に配置した要素であっても、その枠を飛び越えて画面にいっぱいに広げたいこともあります。
-そんな時は、`data-over` 属性を利用することで、コンテナーを飛び越えて配置することができます。
-
-
-<table>
- <thead>
-   <tr>
-      <th>属性名</th>
-      <th>属性値</th>
-      <th>説明</th>
-   </tr>
- </thead>
- <tbody>
-<tr>
 <td rowspan="4">
 
 `data-over`
@@ -398,6 +271,106 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 
 </tbody>
 </table>
+
+<small>() 内はデフォルト値</small>
+
+---
+
+## 基本的な使い方
+
+Webページやセクションを包む要素に `data-container` 属性を指定しましょう。
+それだけで、両サイドに `padding` を使ったオフセット（余白）が指定され（デフォルト： `5vw`  ）、コンテンツがセンタリングされます。
+
+
+<iframe src="/olayout-docs/demo/container/demo-1.html"></iframe>
+
+
+```html "data-container"
+// index.html
+<div data-container>
+  ...
+</div>
+```
+
+### 最大幅の指定
+
+`data-max-width` 属性と組み合わせることで、コンテナーボックスが指定した最大幅以上にはならないように制限することができます。
+
+<iframe src="/olayout-docs/demo/container/demo-2.html"></iframe>
+
+
+```html "data-max-width="medium""
+// index.html
+<div data-container data-max-width="medium">
+  ...
+</div>
+```
+
+`data-max-width` 属性は、`data-container` だけの属性ではないため、このページでの説明を割愛します。
+最大幅の詳細は、[data-max-width属性のドキュメント](/olayout-docs/layout/max-width/)を参照してください。
+
+
+
+### コンテナーの位置
+
+`data-max-width` 属性と組み合わせたコンテナーが最大幅となった時の、コンテナーの位置は、`data-container` 属性を使って指定できます。デフォルトは `center` でセンタリングされるようになっていますが、`left` や `right` を指定することで**オフセット値をキープしながら**最大幅のコンテナーを右や左に配置できます。
+
+<iframe src="/olayout-docs/demo/container/demo-align-1.html" style="min-height: 400px"></iframe>
+
+
+```html "right" "left"
+// index.html
+<div data-container="right" data-max-width="medium">
+  ...
+</div>
+<div data-container="left" data-max-width="medium">
+  ...
+</div>
+```
+
+
+
+### オフセット
+
+`data-offset` 属性を使って、左右のオフセット値（余白量）を切り替えることができます。
+デフォルトは、`medium` が設定されています。
+
+ `none` を指定してオフセット値を無くしたり、`large` を指定してオフセット値を大きくしたりできます。
+
+<iframe src="/olayout-docs/demo/container/demo-offset-1.html"></iframe>
+
+
+
+```html "data-offset="large""
+// index.html
+<div data-container data-offset="large">
+  ...
+</div>
+```
+
+`data-offset-left` 属性や`data-offset-right` 属性を使ってし、左右で別々のオフセット値を指定することもできます。
+
+これで写真を右端に揃えることだってできますね。
+
+
+<iframe src="/olayout-docs/demo/container/demo-offset-2.html"></iframe>
+
+
+```html "data-offset-left="xlarge"" "data-offset-right="none""
+// index.html
+<div data-container data-offset-left="xlarge" data-offset-right="none">
+  ...
+</div>
+```
+
+
+
+### コンテナーを飛び越える
+
+
+コンテナー内に配置した要素であっても、その枠を飛び越えて画面にいっぱいに広げたいこともあります。
+そんな時は、コンテナー内に配した要素に `data-over` 属性を利用して、飛び越えたい方向を指定することで、コンテナーを飛び越えることができます。
+
 
 基本的なコンテンツはコンテナーのオフセット値に合わせて表示したいけど、一部の要素だけコンテナーを飛び越えてウインドウの端っこまでコンテンツを表示させたい時に便利です。
 

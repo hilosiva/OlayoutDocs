@@ -10,58 +10,6 @@ Flexboxを用いたレイアウトに使用します。
 
 `data-display` 属性の詳細については、[data-display属性のドキュメント](/olayout-docs/layout/display/)を参照してください。
 
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-flex` | - | フレックスボックスにする |
-
-
----
-
-## 基本的な使い方
-
-
-`data-flex` 属性または、`data-display="flex"` 属性を使うと、子要素たちが横に並びます。
-
-<iframe src="/olayout-docs/demo/flex/demo-1.html" style="min-height: 8rem; height: 8rem"></iframe>
-
-
-```html "data-flex"
-// index.html
-<div data-flex>
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
-```
-
-### 間隔
-
-`data-gap` 属性と組み合わせることで、各アイテム感の間隔を指定できます。
-
-
-<iframe src="/olayout-docs/demo/flex/demo-2.html" style="min-height: 8rem; height: 8rem"></iframe>
-
-
-```html "data-gap="2""
-// index.html
-<div data-flex data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
-```
-
-間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
-
-
-
-### 折返しと方向
-
-`data-flow`属性で、折返しや方向の設定ができます。
-
-
-
-
 
 <table>
  <thead>
@@ -73,6 +21,17 @@ Flexboxを用いたレイアウトに使用します。
  </thead>
  <tbody>
 <tr>
+<td >
+
+`data-flex`
+</td>
+<td> - </td>
+<td>
+
+フレックスボックスにする
+</td>
+</tr>
+<tr>
 <td rowspan="6">
 
 `data-flow`
@@ -83,7 +42,7 @@ Flexboxを用いたレイアウトに使用します。
 </td>
 <td>
 
-flexアイテムを折り返さない
+フレックスアイテムを折り返さない
 </td>
 </tr>
 
@@ -94,7 +53,7 @@ flexアイテムを折り返さない
 </td>
 <td>
 
-flexアイテムを折り返す <small>（`data-flex`属性では、初期値）</small>
+フレックスアイテムを折り返す <small>（`data-flex`属性では、初期値）</small>
 </td>
 </tr>
 
@@ -144,6 +103,50 @@ flexアイテムを折り返す <small>（`data-flex`属性では、初期値）
 
 </tbody>
 </table>
+
+---
+
+## 基本的な使い方
+
+
+`data-flex` 属性または、`data-display="flex"` 属性を使うと、子要素たちが横に並びます。
+
+<iframe src="/olayout-docs/demo/flex/demo-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "data-flex"
+// index.html
+<div data-flex>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+### 間隔
+
+`data-gap` 属性と組み合わせることで、各アイテム感の間隔を指定できます。
+
+
+<iframe src="/olayout-docs/demo/flex/demo-2.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "data-gap="2""
+// index.html
+<div data-flex data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
+
+
+
+### 折返しと方向
+
+`data-flow`属性で、折返しや方向の設定ができます。
 
 `data-flex` 属性を使っている場合は、フレックスアイテムがデフォルトで折り返す設定（`wrap`）になっています。
 `nowrap` を指定することで、折り返さずコンテナーをはみ出すようにできます。
@@ -202,16 +205,17 @@ flexアイテムを折り返す <small>（`data-flex`属性では、初期値）
 <iframe src="/olayout-docs/demo/flex/demo-place-1.html" style="min-height: 8rem; height: 10rem"></iframe>
 
 
-```html "data-align="end middle""
+```html "data-place="end middle""
 // index/html
-<div data-flex data-align="end middle" data-gap="2">
+<div data-flex data-place="end middle" data-gap="2">
   <div>...</div>
   <div>...</div>
   <div>...</div>
 </div>
 ```
 
-位置指定の詳細は、[data-place属性のドキュメント](/olayout-docs/layout/place/)を参照してください。
+`data-place` 属性は、フレックスコンテナーだけの属性ではないため、このページでの説明を割愛します。
+順番の詳細は、[data-place属性のドキュメント](/olayout-docs/layout/place/)を参照してください。
 
 
 ---
