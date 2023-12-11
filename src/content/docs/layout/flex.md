@@ -3,8 +3,8 @@ title: Flexbox
 description: A reference page in my new Starlight docs site.
 ---
 
-Flexboxを用いたレイアウト用の属性です。
-`data-flex` 属性か、`data-display="flex"` 属性を使うとフレックスボックスを利用できます。
+Flexboxを用いたレイアウトに使用します。
+`data-flex` 属性か、`data-display="flex"` 属性を使うことでフレックスボックスを利用できます。
 
 `data-flex` 属性は**ブレイクポイントごとにflexの有無を切り替えることはできない** ため、ブレイクポイントを利用して flex の有無を切り替える場合は、`data-display` 属性を利用してください。
 
@@ -15,10 +15,14 @@ Flexboxを用いたレイアウト用の属性です。
 | `data-flex` | - | フレックスボックスにする |
 
 
+---
+
+## 基本的な使い方
+
 
 `data-flex` 属性または、`data-display="flex"` 属性を使うと、子要素たちが横に並びます。
 
-<iframe src="/olayout-docs/demo/flex/demo-1.html" style="min-height: auto; height: 8rem"></iframe>
+<iframe src="/olayout-docs/demo/flex/demo-1.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
 ```html "data-flex"
@@ -30,9 +34,12 @@ Flexboxを用いたレイアウト用の属性です。
 </div>
 ```
 
-`data-gap`属性と合わせることで、各アイテム感の余白を指定できます。
+### 間隔
 
-<iframe src="/olayout-docs/demo/flex/demo-2.html" style="min-height: auto; height: 8rem"></iframe>
+`data-gap` 属性と組み合わせることで、各アイテム感の間隔を指定できます。
+
+
+<iframe src="/olayout-docs/demo/flex/demo-2.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
 ```html "data-gap="2""
@@ -44,78 +51,189 @@ Flexboxを用いたレイアウト用の属性です。
 </div>
 ```
 
+間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
 
 
-## 折返しと方向
+
+### 折返しと方向
+
 `data-flow`属性で、折返しや方向の設定ができます。
 
 
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-flow` | `nowrap` | flexアイテムを折り返さない |
-| `data-flow` | `wrap` |  flexアイテムを折り返す |
-| `data-flow` | `row` | 横方向に順番に並ぶ |
-| `data-flow` | `reverse` |  横方向に逆順で並ぶ |
-| `data-flow` | `column` |  縦方向に順番に並ぶ |
 
 
 
-```html [上下と左右のmargin]
-<div data-flex data-flow="wrap column lg:row">
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
+<table>
+ <thead>
+   <tr>
+      <th>属性名</th>
+      <th>属性値</th>
+      <th>説明</th>
+   </tr>
+ </thead>
+ <tbody>
+<tr>
+<td rowspan="6">
+
+`data-flow`
+</td>
+<td>
+
+ `nowrap`
+</td>
+<td>
+
+flexアイテムを折り返さない
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `wrap`
+</td>
+<td>
+
+flexアイテムを折り返す <small>（`data-flex`属性では、初期値）</small>
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `row	`
+</td>
+<td>
+
+横方向に順番に並ぶ <small>（初期値）</small>
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `row-reverse`
+</td>
+<td>
+
+横方向に逆順で並ぶ
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `col`
+</td>
+<td>
+
+縦方向に順番に並ぶ
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `col-reverse`
+</td>
+<td>
+
+縦方向に逆順に並ぶ
+</td>
+</tr>
+
+</tbody>
+</table>
+
+`data-flex` 属性を使っている場合は、フレックスアイテムがデフォルトで折り返す設定（`wrap`）になっています。
+`nowrap` を指定することで、折り返さずコンテナーをはみ出すようにできます。
+
+:::note
+`data-display` 属性で `flex` を指定した場合は、デフォルトが `nowrap` です。
+:::
+
+<iframe src="/olayout-docs/demo/flex/demo-flow-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+
+```html "data-flow="nowrap""
+// index.html
+<div data-flex data-flow="nowrap" data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
 </div>
 ```
 
-## Alignment
+フレックスアイテムを `col` で縦方向に並べたり、`row-reverse` で逆順にすることもできます。
 
-`data-align`属性で、フレックスアイテムの位置を設定できます。
-
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-align` | `start` | 左揃え |
-| `data-align` | `center` |  水平中央揃え |
-| `data-align` | `end` |  右揃え |
-| `data-align` | `justify` |  均等揃え |
-| `data-align` | `top` |  上揃え |
-| `data-align` | `middle` |  垂直中央揃え |
-| `data-align` | `bottom` |  下揃え |
+<iframe src="/olayout-docs/demo/flex/demo-flow-2.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
-```html [上下と左右のmargin]
-<div data-flex data-align="center min:middle lg:end">
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
+```html "row-reverse"
+// index.html
+<div data-flex data-flow="row-reverse" data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
 </div>
 ```
 
-## Gap
+折返しと方向の値は、それぞれを半角スペース区切りで組み合わせて指定できます。
 
-`data-gap`属性で、フレックスアイテムの間隔を設定できます。
-
-| 属性名    | 属性値                    | 説明 |
-| --------- | ------------------------- | ---- |
-| `data-gap` | `ブレイクポイント名:倍数` | 各アイテムの上下左右の間隔を設定 |
-| `data-gap-y` | `ブレイクポイント名:倍数` | 各アイテムの上下の間隔を設定 |
-| `data-gap-x` | `ブレイクポイント名:倍数` | 各アイテムの左右の間隔を設定 |
+<iframe src="/olayout-docs/demo/flex/demo-flow-3.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
-
-```html [上下と左右のmargin]
-<div data-flex data-gap="4 min:6 lg:8">
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
-  <div data-flex-item>...</div>
+```html "nowrap row-reverse"
+// index.html
+<div data-flex data-flow="nowrap row-reverse" data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
 </div>
 ```
 
 
-## Glow
+### 位置
+
+`data-place`属性と組み合わせることで、自由にフレックスアイテムの位置を設定できます。
 
 
-## shilink
+<iframe src="/olayout-docs/demo/flex/demo-place-1.html" style="min-height: 8rem; height: 10rem"></iframe>
 
 
-## order
+```html "data-align="end middle""
+// index/html
+<div data-flex data-align="end middle" data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+位置指定の詳細は、[data-place属性のドキュメント](/olayout-docs/layout/place/)を参照してください。
+
+
+---
+
+## レスポンシブ対応
+
+各属性の値を指定する前に、ブレイクポイント名と:を付けることで、ブレイクポイントごとにスタイルを設定できます。
+
+例えば、スマートフォンでは縦にアイテムを並べて、PCでは横に並べるということもあるでしょう。
+
+そのような、ある一定のブラウザサイズからフレックスアイテムの方向が変わるような設定も簡単です。
+
+
+
+<iframe src="/olayout-docs/demo/flex/demo-breakpoint-flow-1.html" style="min-height: 8rem; height: 10rem"></iframe>
+
+
+```html "sm:row"
+// index/html
+<div data-flex data-flow="col sm:row" data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```

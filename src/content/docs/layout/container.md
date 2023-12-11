@@ -3,7 +3,7 @@ title: Container
 description: A reference page in my new Starlight docs site.
 ---
 
-Webページやセクションを包む要素に指定するコンポーネントです。
+Webページやセクションを包む要素に使用します。
 
 Webページ全体のセンタリングや、セクション内のコンテンツのセンタリング、固定幅を設定してコンテンツを右端揃えにするなどに活用してください。
 

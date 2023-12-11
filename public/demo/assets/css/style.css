@@ -1,4 +1,4 @@
-@import "https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.1/cdn/olayout.min.css";
+@import "https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0/cdn/olayout.min.css?12111628";
 @import url("https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@800&display=swap");
 
 :root {
@@ -21,4 +21,14 @@
   letter-spacing: 0.04em;
 
   background: #3094dc;
+}
+
+.box.-mid {
+  padding: 1.25rem;
+}
+.box.-heigh {
+  padding: 2rem 1.25rem;
+}
+.box.-low {
+  padding: 0.5rem 1.25rem;
 }

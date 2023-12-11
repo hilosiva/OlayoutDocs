@@ -1,0 +1,77 @@
+---
+title: Flex Item
+description: A reference page in my new Starlight docs site.
+---
+
+`data-flex`属性や、`data-display: flex`属性の子要素であるフレックスアイテムに様々な指定ができます。
+
+
+
+| 属性名    | 属性値                    | 説明 |
+| --------- | ------------------------- | ---- |
+| `data-flex-item` | - | フレックスアイテム |
+
+
+---
+
+## 基本的な使い方
+
+フレックスアイテムに、`data-flex-item` 属性を指定すると、フレックスアイテムにもフレックスコンテナーの属性が利用できるようになります。
+
+これは特に利用しなくても問題ありませんが、例えば横並びのカードコンポーネントの高さを合わせる時に便利になります。
+
+
+<iframe src="/olayout-docs/demo/flex-item/demo-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "data-flex-item"
+// index.html
+<div data-flex data-gap="2">
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
+  <div data-flex-item>...</div>
+</div>
+```
+
+
+### 伸び率
+
+`data-grow` 属性を利用することで、フレックスコンテナー内の主軸方向に余っている余白を、フレックスアイテムにどれだけ割り当てるかを指定できます。
+
+| 属性名    | 属性値                    | 説明 |
+| --------- | ------------------------- | ---- |
+| `data-grow` | 伸び率（最大: 3） | 伸び率の指定（初期値: 0） |
+
+
+<iframe src="/olayout-docs/demo/flex-item/demo-grow-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "data-grow="2"" "data-grow="1""
+// index.html
+<div data-flex data-gap="2">
+  <div data-flex-item data-grow="2">...</div>
+  <div data-flex-item data-grow="1">...</div>
+  <div data-flex-item>...</div>
+</div>
+```
+
+### 伸縮率
+
+`data-shrink` 属性を利用することで、フレックスコンテナー内の主軸方向に超えてしまったアイテムの大きさを、フレックスアイテムがどれだけ縮小できるかを指定できます。
+
+| 属性名    | 属性値                    | 説明 |
+| --------- | ------------------------- | ---- |
+| `data-shrink` | 伸縮率（最大: 3） | 伸縮率の指定（初期値: 0） |
+
+
+<iframe src="/olayout-docs/demo/flex-item/demo-shrink-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "data-shrink="2"" "data-shrink="1""
+// index.html
+<div data-flex data-gap="2">
+  <div data-flex-item data-shrink="2">...</div>
+  <div data-flex-item data-shrink="1">...</div>
+  <div data-flex-item>...</div>
+</div>
+```
