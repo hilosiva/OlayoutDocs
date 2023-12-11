@@ -49,19 +49,19 @@ description: A reference page in my new Starlight docs site.
 ```html "data-grow="2"" "data-grow="1""
 // index.html
 <div data-flex data-gap="2">
-  <div data-flex-item data-grow="2">...</div>
-  <div data-flex-item data-grow="1">...</div>
-  <div data-flex-item>...</div>
+  <div data-grow="2">...</div>
+  <div data-grow="1">...</div>
+  <div>...</div>
 </div>
 ```
 
-### 伸縮率
+### 縮み率
 
 `data-shrink` 属性を利用することで、フレックスコンテナー内の主軸方向に超えてしまったアイテムの大きさを、フレックスアイテムがどれだけ縮小できるかを指定できます。
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-shrink` | 伸縮率（最大: 3） | 伸縮率の指定（初期値: 0） |
+| `data-shrink` | 縮み率（最大: 3） | 縮み率の指定（初期値: 0） |
 
 
 <iframe src="/olayout-docs/demo/flex-item/demo-shrink-1.html" style="min-height: 8rem; height: 8rem"></iframe>
@@ -70,8 +70,121 @@ description: A reference page in my new Starlight docs site.
 ```html "data-shrink="2"" "data-shrink="1""
 // index.html
 <div data-flex data-gap="2">
-  <div data-flex-item data-shrink="2">...</div>
-  <div data-flex-item data-shrink="1">...</div>
-  <div data-flex-item>...</div>
+  <div data-shrink="2">...</div>
+  <div data-shrink="1">...</div>
+  <div>...</div>
 </div>
+```
+
+### 順番
+
+`data-order` 属性と組み合わせることで、フレックスアイテムの順番を変更することができます。
+
+<iframe src="/olayout-docs/demo/flex-item/demo-order-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "data-order="-1"" "data-order="2""
+// index.html
+<div data-flex data-gap="2">
+  <div data-order="-1">...</div>
+  <div data-order="2">...</div>
+  <div>...</div>
+</div>
+```
+
+`data-order` 属性は、フレックスアイテムだけの属性ではないため、このページでの説明を割愛します。
+順番の詳細は、[data-order属性のドキュメント](/olayout-docs/layout/order/)を参照してください。
+
+
+---
+
+## レスポンシブ対応
+
+各属性の値を指定する前に、ブレイクポイント名と:を付けることで、ブレイクポイントごとにスタイルを設定できます。
+
+
+<iframe src="/olayout-docs/demo/flex-item/demo-breakpoint-flex-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "sm:0" "sm:1" "sm:2"
+// index.html
+<div data-flex data-gap="2">
+  <div data-grow="2 sm:0">...</div>
+  <div data-grow="1 sm:2">...</div>
+  <div data-grow="sm:1">...</div>
+</div>
+```
+
+
+## 特定の箇所だけの値
+
+特定の箇所のみ `data-grow`属性や、`data-shrink` 属性の値を変更するには、カスタプロパティを直接上書きすることで対応できます。
+
+| カスタムプロパティ名 | 値  | 説明 |
+| -------------------- | --- | ---- |
+| `--ol-grow` |  数値（負の値は不可）  |   `flex-grow` の値   |
+| `--ol-shrink` |   数値（負の値は不可）  |   `flex-shrink` の値   |
+
+
+### 手軽に任意の値を使う
+
+手軽な方法は、`style` 属性を使ってカスタムプロパティを上書きすることです。
+
+<iframe src="/olayout-docs/demo/flex-item/demo-custom-flex-1.html"></iframe>
+
+
+```html "style="--ol-grow: 0.5"" "style="--ol-shrink: 1.5""
+// index.html
+<div data-flex data-gap="2">
+  <div data-grow="1">01</div>
+  <div data-grow style="--ol-grow: 0.5">02</div>
+  <div data-grow="1">03</div>
+</div>
+
+<div data-flex data-gap="2">
+  <div data-shrink="1">01</div>
+  <div data-shrink style="--ol-shrink: 1.5">02</div>
+  <div data-shrink="1">03</div>
+</div>
+```
+
+こうすることで、その要素に対して自由な伸び率や縮み率を指定できます。
+ただし、この方法はブレイクポイントごとにオフセット値を変更することができません。
+
+### ブレイクポイントごとの値
+
+ブレイクポイントごとに伸び率や縮み率を変更したい場合は、その要素に`class`属性かカスタデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
+
+
+<iframe src="/olayout-docs/demo/flex-item/demo-custom-flex-2.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+
+```html "my-grow"
+// index.html
+<div data-flex data-gap="2">
+  <div data-grow="1">01</div>
+  <div data-grow="my-grow">02</div>
+  <div data-grow="1">03</div>
+</div>
+```
+
+
+```css
+// style.css
+[data-offset="my-grow"] {
+  --ol-grow: 1.5;
+}
+
+@media (--ol-md) {
+  [data-grow="my-grow"] {
+    --ol-grow: 0.5;
+  }
+}
+
+@media (--ol-lg) {
+  [data-grow="my-grow"] {
+    --ol-grow: 0;
+  }
+}
 ```
