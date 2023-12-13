@@ -33,17 +33,34 @@ export default defineConfig({
             { label: "Functions", link: "/guides/functions/" },
           ],
         },
+        // {
+        //   label: "Reference",
+        //   items: [
+        //     { label: "Base Styles", autogenerate: { directory: "base-styles" } },
+        //     { label: "Layout", autogenerate: { directory: "layout" } },
+        //     { label: "Component", autogenerate: { directory: "component" } },
+        //     { label: "Utilies", autogenerate: { directory: "utilities" } },
+        //   ],
+        // },
         {
           label: "Base Styles",
           items: [{ label: "Reset", link: "/base-styles/reset/" }],
         },
         {
-          label: "Layout",
-          autogenerate: { directory: "layout" },
+          label: "Layouts",
+          autogenerate: { directory: "layouts" },
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Component",
+          autogenerate: { directory: "components" },
+        },
+        {
+          label: "Utilies",
+          autogenerate: { directory: "utilities" },
+        },
+        {
+          label: "Recipes",
+          autogenerate: { directory: "recipes" },
         },
       ],
       customCss: [

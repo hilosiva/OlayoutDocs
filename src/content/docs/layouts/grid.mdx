@@ -1,0 +1,249 @@
+---
+title: Grid
+description: A reference page in my new Starlight docs site.
+---
+
+
+`data-grid` 属性を使ってグリッドレイアウトを利用できます。
+
+
+<table>
+ <thead>
+   <tr>
+      <th>属性値</th>
+      <th>説明</th>
+      <th>分類</th>
+   </tr>
+ </thead>
+ <tbody>
+<tr>
+
+<td>
+
+`block`
+</td>
+<td>
+
+グリッドコンテナーにする <small>（初期値）</small>
+</td>
+<td rowspan="2">
+
+表示
+</td>
+</tr>
+
+<tr>
+<td>
+
+`unset`
+</td>
+<td>
+
+グリッドコンテナーではなくす
+</td>
+</tr>
+
+
+<tr>
+
+<td>
+
+`cols-1` ~ `cols-12`
+</td>
+<td>
+
+列数を設定
+</td>
+<td rowspan="2">
+
+
+列トラック
+</td>
+</tr>
+
+
+<tr>
+
+<td>
+
+`cols-none`
+</td>
+<td>
+
+列をなしにする <small>（初期値）</small>
+</td>
+
+</tr>
+
+<tr>
+
+
+<td>
+
+`rows-1` ~ `rows-6`
+</td>
+<td>
+
+行数を設定
+</td>
+<td rowspan="2">
+
+
+行トラック
+</td>
+</tr>
+
+
+<tr>
+
+
+<td>
+
+`rows-none`
+</td>
+<td>
+
+行をなしにする <small>（初期値）</small>
+</td>
+
+</tr>
+
+
+
+
+</tbody>
+</table>
+
+---
+
+## 基本的な使い方
+`data-grid` 属性を指定するとグリッドコンテナーとなり、子要素たちがグリッドアイテムになります。
+
+
+
+
+<iframe src="/olayout-docs/demo/grid/demo-1.html" style="min-height: 16rem" ></iframe>
+
+
+
+```html "data-grid"
+// index.html
+<div data-grid>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### 表示
+`data-grid` 属性はデフォルトでブロックレベルのグリッドコンテナーになります。
+レスポンシブなどで、グリッドコンテナーではなくしたい時には、`unset` を指定することでグリッドコンテナーでなくすこともできます。
+
+
+```html "unset"
+// index.html
+<div data-grid="unset">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### 列の生成
+`data-grid`属性に `cols-1` ~ `cols-12` を値を使って列数（最大12列）を指定できます。
+列数を超えた要素は、自動で次の行を生成され配置されます。
+
+
+<iframe src="/olayout-docs/demo/grid/demo-cols-1.html" style="min-height: 14rem"></iframe>
+
+
+
+```html "cols-3"
+// index.html
+<div data-grid="cols-3" data-gap="3">
+  <div>01</div>
+  <div>...</div>
+  <div>06</div>
+</div>
+```
+
+## Rows
+`data-rows`属性で、行数の設定ができます。
+
+<iframe src="/olayout-docs/demo/grid/demo-rows-1.html" style="min-height: 24rem"></iframe>
+
+
+
+```html "rows-4"
+// index.html
+<div data-grid="rows-4" data-gap="3">
+  <div>01</div>
+  <div>...</div>
+  <div>06</div>
+</div>
+```
+
+
+### 間隔
+
+`data-gap` 属性と組み合わせることで、各アイテム感の間隔を指定できます。
+
+
+<iframe src="/olayout-docs/demo/grid/demo-2.html" style="min-height: 18rem"></iframe>
+
+
+```html "data-gap="2""
+// index.html
+<div data-grid data-gap="2">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+
+`data-gap` 属性は、フレックスコンテナーだけの属性ではないため、このページでの説明を割愛します。
+間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
+
+
+
+## Gap
+
+`data-gap`属性で、フレックスアイテムの間隔を設定できます。
+
+| 属性名    | 属性値                    | 説明 |
+| --------- | ------------------------- | ---- |
+| `data-gap` | `倍数` | 各アイテムの上下左右の間隔を設定 |
+| `data-gap-y` | `倍数` | 各アイテムの上下の間隔を設定 |
+| `data-gap-x` | `倍数` | 各アイテムの左右の間隔を設定 |
+
+
+
+
+```html [上下と左右のmargin]
+<div data-grid data-gap="4 md:6 lg:8">
+  <div data-grid-item>...</div>
+  <div data-grid-item>...</div>
+  <div data-grid-item>...</div>
+</div>
+```
+
+
+## Offset
+
+`data-grid-offset` 属性を使って、左右の余白量を設定することができます。
+
+
+
+| 属性名    | 属性値                    | 説明 |
+| --------- | ------------------------- | ---- |
+
+
+
+```html
+<div data-grid data-grid-offset="small lg:large">
+  <div data-grid-item>...</div>
+  <div data-grid-item>...</div>
+  <div data-grid-item>...</div>
+</div>
+```

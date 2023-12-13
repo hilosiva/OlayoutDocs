@@ -8,19 +8,28 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script src="../assets/js/app.js" defer></script>
     <style>
-      [data-offset="my-grow"] {
+      [data-flex-item="my-grow"] {
         --ol-grow: 1.5;
+      }
+      [data-flex-item="my-shrink"] {
+        --ol-shrink: 0.5;
       }
 
       @media (--ol-md) {
-        [data-grow="my-grow"] {
+        [data-flex-item="my-grow"] {
           --ol-grow: 0.5;
+        }
+        [data-flex-item="my-shrink"] {
+          --ol-shrink: 1.5;
         }
       }
 
       @media (--ol-lg) {
-        [data-grow="my-grow"] {
+        [data-flex-item="my-grow"] {
           --ol-grow: 0;
+        }
+        [data-flex-item="my-shrink"] {
+          --ol-shrink: 1;
         }
       }
     </style>
@@ -28,9 +37,9 @@
   <body>
     <div data-py="4" data-px="4" data-space-y="2">
       <div data-flex data-gap="2" data-radius="small" class="bg-padding-area">
-        <div data-grow="1" class="box">01</div>
-        <div data-grow="my-grow" class="box">02</div>
-        <div data-grow="1" class="box">03</div>
+        <div data-flex-item="g-1" class="box">01</div>
+        <div data-flex-item="my-grow" class="box">02</div>
+        <div data-flex-item="my-shrink" class="box">03</div>
       </div>
     </div>
   </body>

@@ -1,41 +1,62 @@
 ---
-title: Flexbox
+title: Flex
 description: A reference page in my new Starlight docs site.
 ---
 
-Flexboxを用いたレイアウトに使用します。
-`data-flex` 属性か、`data-display="flex"` 属性を使うことでフレックスボックスを利用できます。
-
-`data-flex` 属性は**ブレイクポイントごとにflexの有無を切り替えることはできない** ため、ブレイクポイントを利用して flex の有無を切り替える場合は、`data-display` 属性を利用してください。
-
-`data-display` 属性の詳細については、[data-display属性のドキュメント](/olayout-docs/layout/display/)を参照してください。
+`data-flex` 属性を使うことでフレックスボックスを用いたレイアウトが使えます。
 
 
 <table>
  <thead>
    <tr>
-      <th>属性名</th>
       <th>属性値</th>
       <th>説明</th>
+      <th>分類</th>
    </tr>
  </thead>
  <tbody>
 <tr>
-<td >
-
-`data-flex`
-</td>
-<td> - </td>
 <td>
 
-フレックスボックスにする
+`block`
+</td>
+<td>
+
+ブロックレベルのフレックスコンテナーにする <small>（初期値）</small>
+</td>
+<td rowspan="3">
+
+表示
 </td>
 </tr>
 <tr>
-<td rowspan="6">
 
-`data-flow`
+<td>
+
+ `inline`
 </td>
+<td>
+
+インラインレベルのフレックスコンテナーにする
+</td>
+</tr>
+
+
+
+<tr>
+
+<td>
+
+ `unset`
+</td>
+<td>
+
+フレックスコンテナーをなくす
+</td>
+</tr>
+
+<tr>
+
 <td>
 
  `nowrap`
@@ -44,6 +65,11 @@ Flexboxを用いたレイアウトに使用します。
 
 フレックスアイテムを折り返さない
 </td>
+<td rowspan="2">
+
+折り返し
+</td>
+
 </tr>
 
 <tr>
@@ -53,7 +79,7 @@ Flexboxを用いたレイアウトに使用します。
 </td>
 <td>
 
-フレックスアイテムを折り返す <small>（`data-flex`属性では、初期値）</small>
+フレックスアイテムを折り返す <small>（初期値）</small>
 </td>
 </tr>
 
@@ -65,6 +91,10 @@ Flexboxを用いたレイアウトに使用します。
 <td>
 
 横方向に順番に並ぶ <small>（初期値）</small>
+</td>
+<td rowspan="4">
+
+方向
 </td>
 </tr>
 
@@ -86,7 +116,7 @@ Flexboxを用いたレイアウトに使用します。
 </td>
 <td>
 
-縦方向に順番に並ぶ
+縦方向に順番で並ぶ
 </td>
 </tr>
 
@@ -97,19 +127,23 @@ Flexboxを用いたレイアウトに使用します。
 </td>
 <td>
 
-縦方向に逆順に並ぶ
+縦方向に逆順で並ぶ
 </td>
 </tr>
 
 </tbody>
 </table>
 
+
+「表示」、「折り返し」、「方向」は半角スペース区切りで組み合わせて利用できます。
+
 ---
 
 ## 基本的な使い方
 
 
-`data-flex` 属性または、`data-display="flex"` 属性を使うと、子要素たちが横に並びます。
+`data-flex` 属性を指定すると、子要素たち（フレックスアイテム）が横に並びます。
+
 
 <iframe src="/olayout-docs/demo/flex/demo-1.html" style="min-height: 8rem; height: 8rem"></iframe>
 
@@ -123,12 +157,30 @@ Flexboxを用いたレイアウトに使用します。
 </div>
 ```
 
+
+### 表示
+`data-flex`属性はデフォルトでブロックレベルのフレックスコンテナーになりますが、`inline` を指定してインラインレベルのフレックスコンテナーにしたり、`unset` を指定してフレックスコンテナーでなくすこともできます。
+
+
+<iframe src="/olayout-docs/demo/flex/demo-display-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "inline"
+// index.html
+<div data-flex="inline">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+
 ### 間隔
 
 `data-gap` 属性と組み合わせることで、各アイテム感の間隔を指定できます。
 
 
-<iframe src="/olayout-docs/demo/flex/demo-2.html" style="min-height: 8rem; height: 8rem"></iframe>
+<iframe src="/olayout-docs/demo/flex/demo-gap-1.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
 ```html "data-gap="2""
@@ -140,61 +192,45 @@ Flexboxを用いたレイアウトに使用します。
 </div>
 ```
 
+`data-gap` 属性は、フレックスコンテナーだけの属性ではないため、このページでの説明を割愛します。
 間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
 
+### 折り返し
 
+`data-flex`属性を指定するとデフォルトで折り返す設定（`wrap`）になっていますが、
+`nowrap` を指定することで、折り返さずコンテナーをはみ出すようにもできます。
 
-### 折返しと方向
-
-`data-flow`属性で、折返しや方向の設定ができます。
-
-`data-flex` 属性を使っている場合は、フレックスアイテムがデフォルトで折り返す設定（`wrap`）になっています。
-`nowrap` を指定することで、折り返さずコンテナーをはみ出すようにできます。
-
-:::note
-`data-display` 属性で `flex` を指定した場合は、デフォルトが `nowrap` です。
-:::
 
 <iframe src="/olayout-docs/demo/flex/demo-flow-1.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
 
-```html "data-flow="nowrap""
+```html "nowrap"
 // index.html
-<div data-flex data-flow="nowrap" data-gap="2">
+<div data-flex="nowrap" data-gap="2">
   <div>...</div>
   <div>...</div>
   <div>...</div>
 </div>
 ```
 
-フレックスアイテムを `col` で縦方向に並べたり、`row-reverse` で逆順にすることもできます。
+### 方向
+フレックスアイテムはデフォルトで横並び（ `row` ）になりますが、`col` で縦方向に並べたり、`row-reverse` で逆順にすることもできます。
+
 
 <iframe src="/olayout-docs/demo/flex/demo-flow-2.html" style="min-height: 8rem; height: 8rem"></iframe>
 
 
 ```html "row-reverse"
 // index.html
-<div data-flex data-flow="row-reverse" data-gap="2">
+<div data-flex="row-reverse" data-gap="2">
   <div>...</div>
   <div>...</div>
   <div>...</div>
 </div>
 ```
 
-折返しと方向の値は、それぞれを半角スペース区切りで組み合わせて指定できます。
 
-<iframe src="/olayout-docs/demo/flex/demo-flow-3.html" style="min-height: 8rem; height: 8rem"></iframe>
-
-
-```html "nowrap row-reverse"
-// index.html
-<div data-flex data-flow="nowrap row-reverse" data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
-```
 
 
 ### 位置
@@ -235,7 +271,7 @@ Flexboxを用いたレイアウトに使用します。
 
 ```html "sm:row"
 // index/html
-<div data-flex data-flow="col sm:row" data-gap="2">
+<div data-flex="col sm:row" data-gap="2">
   <div>...</div>
   <div>...</div>
   <div>...</div>

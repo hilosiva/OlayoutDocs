@@ -3,7 +3,7 @@ title: Container
 description: A reference page in my new Starlight docs site.
 ---
 
-Webページやセクションを包む要素に使用します。
+`data-container`属性は、Webページやセクションを包む要素に使用します。
 
 Webページ全体のセンタリングや、セクション内のコンテンツのセンタリング、固定幅を設定してコンテンツを右端揃えにするなどに活用してください。
 
@@ -12,61 +12,25 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <table>
  <thead>
    <tr>
-      <th>属性名</th>
       <th>属性値</th>
       <th>説明</th>
+      <th>分類</th>
    </tr>
  </thead>
  <tbody>
 <tr>
-<td rowspan="3">
-
-`data-container`
-</td>
-<td>
-
- `left`
-</td>
-<td>
-
-最大幅のコンテナーを左に配置する
-</td>
-</tr>
-
-<tr>
-<td>
-
- `center`
-</td>
-<td>
-
-最大幅のコンテナーをセンタリングする <small>（初期値）</small>
-</td>
-</tr>
-
-<tr>
-<td>
-
- `right`
-</td>
-<td>
-
-最大幅のコンテナーを右に配置
-</td>
-</tr>
-<tr>
-<tr>
-<td rowspan="5">
-
-`data-offset`
-</td>
 <td>
 
  `none`
 </td>
+
 <td>
 
 左右のオフセット値を `0` にする
+</td>
+<td rowspan="15">
+
+ オフセット
 </td>
 </tr>
 
@@ -112,13 +76,10 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 </tr>
 <tr>
-<td rowspan="5">
 
-`data-offset-left`
-</td>
 <td>
 
- `none`
+ `l-none`
 </td>
 <td>
 
@@ -129,7 +90,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `small`
+ `l-small`
 </td>
 <td>
 
@@ -139,7 +100,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `medium`
+ `l-medium`
 </td>
 <td>
 
@@ -149,7 +110,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `large`
+ `l-large`
 </td>
 <td>
 
@@ -159,7 +120,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `xlarge`
+ `l-xlarge`
 </td>
 <td>
 
@@ -167,13 +128,10 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 </tr>
 <tr>
-<td rowspan="5">
 
-`data-offset-right`
-</td>
 <td>
 
- `none`
+ `r-none`
 </td>
 <td>
 
@@ -184,7 +142,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `small`
+ `r-small`
 </td>
 <td>
 
@@ -194,7 +152,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `medium`
+ `r-medium`
 </td>
 <td>
 
@@ -204,7 +162,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `large`
+ `r-large`
 </td>
 <td>
 
@@ -214,24 +172,38 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 <tr>
 <td>
 
- `xlarge`
+ `r-xlarge`
 </td>
 <td>
 
 右のオフセット値を `xlarge` <small>（ `15vw` ）</small>にする
 </td>
 </tr>
-<td rowspan="4">
 
-`data-over`
-</td>
+<tr>
 <td>
 
  `left`
 </td>
+
 <td>
 
-左側のコンテナーを飛び越える
+最大幅のコンテナーを左に配置する
+</td>
+<td rowspan="3">
+
+位置
+</td>
+</tr>
+
+<tr>
+<td>
+
+ `center`
+</td>
+<td>
+
+最大幅のコンテナーをセンタリングする <small>（初期値）</small>
 </td>
 </tr>
 
@@ -242,37 +214,18 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-右側のコンテナーを飛び越える
-</td>
-</tr>
-
-<tr>
-<td>
-
- `both`
-</td>
-<td>
-
-両側のコンテナーを飛び越える
+最大幅のコンテナーを右に配置
 </td>
 </tr>
 
 
-<tr>
-<td>
-
- `clear`
-</td>
-<td>
-
-飛び越えを解除
-</td>
-</tr>
 
 </tbody>
 </table>
 
 <small>() 内はデフォルト値</small>
+
+オフセットと位置は、半角スペース区切りで組み合わせて利用できます。
 
 ---
 
@@ -292,11 +245,48 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 </div>
 ```
 
+
+
+### オフセット値
+
+左右のオフセット値（余白量）を切り替えることができます。
+デフォルトは、`medium` が設定されています。
+
+ `none` を指定してオフセット値を無くしたり、`large` を指定してオフセット値を大きくしたりできます。
+
+<iframe src="/olayout-docs/demo/container/demo-offset-1.html"></iframe>
+
+
+
+```html "data-container="large""
+// index.html
+<div data-container="large">
+  ...
+</div>
+```
+
+`l-` から始まる値や、`r-` から始まる値を使えば左右で別々のオフセット値を指定することもできます。
+
+これで写真を右端に揃えることだってできますね。
+
+
+<iframe src="/olayout-docs/demo/container/demo-offset-2.html"></iframe>
+
+
+```html "l-xlarge" "r-none"
+// index.html
+<div data-container="l-xlarge r-none">
+  ...
+</div>
+```
+
+
+
 ### 最大幅の指定
 
 `data-max-width` 属性と組み合わせることで、コンテナーボックスが指定した最大幅以上にはならないように制限することができます。
 
-<iframe src="/olayout-docs/demo/container/demo-2.html"></iframe>
+<iframe src="/olayout-docs/demo/container/demo-max-width-1.html"></iframe>
 
 
 ```html "data-max-width="medium""
@@ -313,7 +303,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 
 ### コンテナーの位置
 
-`data-max-width` 属性と組み合わせたコンテナーが最大幅となった時の、コンテナーの位置は、`data-container` 属性を使って指定できます。デフォルトは `center` でセンタリングされるようになっていますが、`left` や `right` を指定することで**オフセット値をキープしながら**最大幅のコンテナーを右や左に配置できます。
+`data-max-width` 属性と組み合わせたコンテナーが最大幅となった時の、コンテナーの位置を指定できます。デフォルトは `center` でセンタリングされるようになっていますが、`left` や `right` を指定することで**オフセット値をキープしながら**最大幅のコンテナーを右や左に配置できます。
 
 <iframe src="/olayout-docs/demo/container/demo-align-1.html" style="min-height: 400px"></iframe>
 
@@ -324,41 +314,6 @@ Webページやセクションを包む要素に `data-container` 属性を指�
   ...
 </div>
 <div data-container="left" data-max-width="medium">
-  ...
-</div>
-```
-
-
-
-### オフセット
-
-`data-offset` 属性を使って、左右のオフセット値（余白量）を切り替えることができます。
-デフォルトは、`medium` が設定されています。
-
- `none` を指定してオフセット値を無くしたり、`large` を指定してオフセット値を大きくしたりできます。
-
-<iframe src="/olayout-docs/demo/container/demo-offset-1.html"></iframe>
-
-
-
-```html "data-offset="large""
-// index.html
-<div data-container data-offset="large">
-  ...
-</div>
-```
-
-`data-offset-left` 属性や`data-offset-right` 属性を使ってし、左右で別々のオフセット値を指定することもできます。
-
-これで写真を右端に揃えることだってできますね。
-
-
-<iframe src="/olayout-docs/demo/container/demo-offset-2.html"></iframe>
-
-
-```html "data-offset-left="xlarge"" "data-offset-right="none""
-// index.html
-<div data-container data-offset-left="xlarge" data-offset-right="none">
   ...
 </div>
 ```
@@ -424,7 +379,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 
 ```html "sm:medium"
 // index.html
-<div data-container data-offset="none sm:medium">
+<div data-container="none sm:medium">
   <img src="..." alt="">
 </div>
 ```
@@ -437,7 +392,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 
 ```html "sm:xlarge" "sm:clear" "sm:left" "sm:right"
 // index.html
-<div data-container data-offset="sm:xlarge">
+<div data-container="sm:xlarge">
   ...
   <div data-over="both sm:clear">
     <img src="..." alt="">
@@ -467,7 +422,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 
 ## カスタマイズ
 
-`data-container`属性と、`data-offset` 属性のオフセット値をカスタマイズすることができます。
+オフセット値をカスタマイズすることができます。
 
 ### 設定ファイル
 
@@ -513,8 +468,8 @@ CDN版を利用されている場合は、`:root` で、オフセットに関す
 
 | カスタムプロパティ名 | 値  | 説明 |
 | -------------------- | --- | ---- |
-| `--ol-container-left-offset` |  px,rem,vw,% など  |   コンテナーの左側のオフセット値   |
-| `--ol-container-right-offset` |   px,rem,vw,% など   |   コンテナーの右側のオフセット値   |
+| `--ol-offset-left` |  px,rem,vw  |   コンテナーの左側のオフセット値   |
+| `--ol-offset-right` |   px,rem,vw   |   コンテナーの右側のオフセット値   |
 
 
 ### 手軽に任意の値を使う
@@ -524,9 +479,9 @@ CDN版を利用されている場合は、`:root` で、オフセットに関す
 <iframe src="/olayout-docs/demo/container/demo-custom-offset-1.html"></iframe>
 
 
-```html "--ol-container-left-offset" "--ol-container-right-offset"
+```html "--ol-offset-left" "--ol-offset-right"
 // index.html
-<div data-container style="--ol-container-left-offset: 1.5vw; --ol-container-right-offset: 1.5vw">
+<div data-container style="--ol-offset-left: 1.5vw; --ol-offset-right: 1.5vw">
   ...
 </div>
 ```
@@ -553,21 +508,21 @@ CDN版を利用されている場合は、`:root` で、オフセットに関す
 ```css
 // style.css
 [data-offset="my-offset"] {
-  --ol-container-left-offset: 8vw;
-  --ol-container-right-offset: 8vw;
+  --ol-offset-left: 8vw;
+  --ol-offset-right: 8vw;
 }
 
 @media (--ol-md) {
   [data-offset="my-offset"] {
-    --ol-container-left-offset: 4vw;
-    --ol-container-right-offset: 4vw;
+    --ol-offset-left: 4vw;
+    --ol-offset-right: 4vw;
   }
 }
 
 @media (--ol-lg) {
   [data-offset="my-offset"] {
-    --ol-container-left-offset: 2vw;
-    --ol-container-right-offset: 2vw;
+    --ol-offset-left: 2vw;
+    --ol-offset-right: 2vw;
   }
 }
 ```
