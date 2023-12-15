@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Grid Item | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/app.js" defer></script>
+    <style>
+      [data-grid-item~="my-cols"] {
+        --ol-grid-col-start: 2;
+        --ol-grid-col-end: 16;
+      }
+
+      @media screen and (min-width: 768px) {
+        [data-grid-item~="my-cols"] {
+          --ol-grid-col-start: 3;
+          --ol-grid-col-end: 15;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        [data-grid-item~="my-cols"] {
+          --ol-grid-col-start: 4;
+          --ol-grid-col-end: 14;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div data-py="6" data-px="4">
+      <div class="griddGuide">
+        <div data-grid data-gap="2" style="--ol-grid-cols: repeat(16, minmax(0, 1fr))">
+          <div class="bg-padding-area -blue" data-radius="small"></div>
+          <div class="bg-padding-area -blue" data-display="none md:unset" data-radius="small"></div>
+          <div class="bg-padding-area -blue" data-display="none lg:unset" data-radius="small"></div>
+          <div data-grid-item="my-cols" class="box">01</div>
+          <div class="bg-padding-area -blue" data-display="none lg:unset" data-radius="small"></div>
+          <div class="bg-padding-area -blue" data-display="none md:unset" data-radius="small"></div>
+          <div class="bg-padding-area -blue" data-radius="small"></div>
+        </div>
+        <div class="griddGuide__col" data-grid style="--ol-grid-cols: repeat(16, minmax(0, 1fr))">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

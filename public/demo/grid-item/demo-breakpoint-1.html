@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Grid Item | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div data-py="6" data-px="4">
+      <div class="griddGuide">
+        <div data-grid="cols-4 sm:cols-6 sm:row-dense" data-gap="1 sm:2">
+          <div data-grid-item="col-full sm:col-3 sm:row-2" class="box">01</div>
+          <div data-grid-item="col-2 " class="box">02</div>
+          <div data-grid-item="col-2" class="box">03</div>
+          <div data-grid-item="sm:row-start-1 sm:row-2" class="box">04</div>
+          <div data-grid-item="col-3 sm:col-full" class="box">05</div>
+        </div>
+        <div class="griddGuide__col" data-grid="cols-4 sm:cols-6">
+          <span></span>
+          <span></span>
+          <span data-display="none sm:revert"></span>
+          <span data-display="none sm:revert"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="griddGuide__row" data-grid="rows-3">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

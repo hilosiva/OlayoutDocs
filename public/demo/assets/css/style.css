@@ -55,11 +55,11 @@
 }
 
 .griddGuide__col > span::before,
-.griddGuide__col > span:last-child::after {
+.griddGuide__col > span:last-child::after,
+.griddGuide__row > span::before,
+.griddGuide__row > span:last-child::after {
   content: counter(line);
   position: absolute;
-
-  top: 0;
   background-color: var(--padding-area-color);
   width: 1.5em;
   height: 1.5em;
@@ -69,16 +69,34 @@
   font-size: 0.875rem;
 }
 
+.griddGuide__col > span::before,
+.griddGuide__col > span:last-child::after {
+  top: 0;
+}
+
 .griddGuide__col > span::before {
   left: 0;
   transform: translate(-50%, -100%);
 }
 .griddGuide__col > span:last-child::after {
   counter-increment: line;
-
   right: 0;
-
   transform: translate(50%, -100%);
+}
+
+.griddGuide__row > span::before,
+.griddGuide__row > span:last-child::after {
+  left: 0;
+}
+
+.griddGuide__row > span::before {
+  top: 0;
+  transform: translate(-100%, -50%);
+}
+.griddGuide__row > span:last-child::after {
+  counter-increment: line;
+  bottom: 0;
+  transform: translate(-100%, 50%);
 }
 
 .box {

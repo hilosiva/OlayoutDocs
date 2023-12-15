@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Grid Item | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div data-py="6" data-px="4">
+      <div class="griddGuide">
+        <div data-grid data-gap="2" style="--ol-grid-cols: repeat(24, minmax(0, 1fr))">
+          <div data-grid-item="col-full" class="box">01</div>
+          <div class="bg-padding-area -blue" data-radius="small"></div>
+          <div data-grid-item style="--ol-grid-col-start: 2; --ol-grid-col-end: 24" class="box">02</div>
+          <div class="bg-padding-area -blue" data-radius="small"></div>
+          <div data-grid-item style="--ol-grid-col-start: span 14" class="box">03</div>
+          <div data-grid-item="col-5" style="--ol-grid-col-end: 20" class="box">04</div>
+          <div class="bg-padding-area -blue" data-radius="small"></div>
+          <div class="bg-padding-area -blue" data-radius="small"></div>
+          <div data-grid-item="col-3" style="--ol-grid-col-end: -1" class="box">05</div>
+        </div>
+        <div class="griddGuide__col" data-grid style="--ol-grid-cols: repeat(24, minmax(0, 1fr))">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
