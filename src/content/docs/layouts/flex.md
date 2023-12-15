@@ -1,5 +1,5 @@
 ---
-title: Flex
+title: Flex Container
 description: A reference page in my new Starlight docs site.
 ---
 
@@ -151,9 +151,9 @@ description: A reference page in my new Starlight docs site.
 ```html "data-flex"
 // index.html
 <div data-flex>
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
@@ -168,9 +168,45 @@ description: A reference page in my new Starlight docs site.
 ```html "inline"
 // index.html
 <div data-flex="inline">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+
+### 折り返し
+
+`data-flex`属性を指定するとデフォルトで折り返す設定（`wrap`）になっていますが、
+`nowrap` を指定することで、折り返さずコンテナーをはみ出すようにもできます。
+
+
+<iframe src="/olayout-docs/demo/flex/demo-flow-1.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+
+```html "nowrap"
+// index.html
+<div data-flex="nowrap">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### 方向
+フレックスアイテムはデフォルトで横並び（ `row` ）になりますが、`col` で縦方向に並べたり、`row-reverse` で逆順にすることもできます。
+
+
+<iframe src="/olayout-docs/demo/flex/demo-flow-2.html" style="min-height: 8rem; height: 8rem"></iframe>
+
+
+```html "row-reverse"
+// index.html
+<div data-flex="row-reverse">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
@@ -186,50 +222,14 @@ description: A reference page in my new Starlight docs site.
 ```html "data-gap="2""
 // index.html
 <div data-flex data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
 `data-gap` 属性は、フレックスコンテナーだけの属性ではないため、このページでの説明を割愛します。
 間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
-
-### 折り返し
-
-`data-flex`属性を指定するとデフォルトで折り返す設定（`wrap`）になっていますが、
-`nowrap` を指定することで、折り返さずコンテナーをはみ出すようにもできます。
-
-
-<iframe src="/olayout-docs/demo/flex/demo-flow-1.html" style="min-height: 8rem; height: 8rem"></iframe>
-
-
-
-```html "nowrap"
-// index.html
-<div data-flex="nowrap" data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
-```
-
-### 方向
-フレックスアイテムはデフォルトで横並び（ `row` ）になりますが、`col` で縦方向に並べたり、`row-reverse` で逆順にすることもできます。
-
-
-<iframe src="/olayout-docs/demo/flex/demo-flow-2.html" style="min-height: 8rem; height: 8rem"></iframe>
-
-
-```html "row-reverse"
-// index.html
-<div data-flex="row-reverse" data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</div>
-```
-
 
 
 
@@ -244,9 +244,9 @@ description: A reference page in my new Starlight docs site.
 ```html "data-place="end middle""
 // index/html
 <div data-flex data-place="end middle" data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
@@ -272,8 +272,8 @@ description: A reference page in my new Starlight docs site.
 ```html "sm:row"
 // index/html
 <div data-flex="col sm:row" data-gap="2">
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```

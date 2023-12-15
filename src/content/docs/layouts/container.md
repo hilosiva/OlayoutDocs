@@ -341,7 +341,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
     <img src="..." alt="">
   </div>
 
-  <div data-grid data-cols="2" data-gap="3">
+  <div data-grid="cols-2" data-gap="3">
     <div data-over="left">
       <img src="..." alt="">
     </div>
@@ -350,7 +350,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
     </div>
   </div>
 
-  <div data-grid data-cols="2" data-gap="3">
+  <div data-grid="cols-2" data-gap="3">
     <div data-over="right" data-order="1">
       <img src="..." alt="">
     </div>
@@ -398,7 +398,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
     <img src="..." alt="">
   </div>
 
-  <div data-grid data-cols="1 sm:2" data-gap="2 sm:3">
+  <div data-grid="cols-1 sm:cols-2" data-gap="2 sm:3">
     <div data-over="both sm:left">
       <img src="..." alt="">
     </div>
@@ -407,7 +407,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
     </div>
   </div>
 
-  <div data-grid data-cols="1 sm:2" data-gap="2 sm:3">
+  <div data-grid="cols-1 sm:cols-2" data-gap="2 sm:3">
     <div data-over="both sm:right" data-order="sm:1">
       <img src="..." alt="">
     </div>
@@ -462,6 +462,8 @@ CDN版を利用されている場合は、`:root` で、オフセットに関す
 オフセット値のカスタマイズの詳細は、[レイアウトのカスタマイズに関するドキュメント](/olayout-docs/guides/configuration/#layout)を参照してください。
 
 
+---
+
 ## 特定の箇所だけの値
 
 "olayout.config.cjs" に設定するほどでもない、特定の箇所のみに利用するオフセット値や、vw以外のオフセット値を使う場合は、カスタプロパティを直接上書きすることで対応できます。
@@ -491,36 +493,36 @@ CDN版を利用されている場合は、`:root` で、オフセットに関す
 
 ### ブレイクポイントごとの値
 
-ブレイクポイントごとにオフセット値を変更したい場合は、その要素に`class`属性かカスタデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
+ブレイクポイントごとにオフセット値を変更したい場合は、その要素に`class`属性かカスタムデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
 
 
 <iframe src="/olayout-docs/demo/container/demo-custom-offset-2.html"></iframe>
 
 
 
-```html "data-offset="my-offset""
+```html "my-offset"
 // index.html
-<div data-container data-offset="my-offset">
+<div data-container="my-offset">
   ...
 </div>
 ```
 
 ```css
 // style.css
-[data-offset="my-offset"] {
+[data-container="my-offset"] {
   --ol-offset-left: 8vw;
   --ol-offset-right: 8vw;
 }
 
 @media (--ol-md) {
-  [data-offset="my-offset"] {
+  [data-container="my-offset"] {
     --ol-offset-left: 4vw;
     --ol-offset-right: 4vw;
   }
 }
 
 @media (--ol-lg) {
-  [data-offset="my-offset"] {
+  [data-container="my-offset"] {
     --ol-offset-left: 2vw;
     --ol-offset-right: 2vw;
   }

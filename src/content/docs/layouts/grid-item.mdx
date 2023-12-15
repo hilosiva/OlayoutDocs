@@ -1,0 +1,432 @@
+---
+title: Grid Item
+description: A reference page in my new Starlight docs site.
+---
+
+
+`data-grid-item` 属性を使ってグリッドアイテムを操作できます。
+
+
+<table>
+ <thead>
+   <tr>
+      <th>属性値</th>
+      <th>説明</th>
+      <th>分類</th>
+   </tr>
+ </thead>
+ <tbody>
+<tr>
+
+<td>
+
+`col-1` ~ `col-12`
+</td>
+<td>
+
+結合する列数
+</td>
+<td rowspan="3">
+
+列の結合
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+`col-full`
+</td>
+<td>
+
+すべての列を結合
+</td>
+</tr>
+
+<tr>
+<td>
+
+`col-auto`
+</td>
+<td>
+
+列の自動配置 <small>（初期値）</small>
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+`col-start-1` ~ `col-start-12`
+</td>
+<td>
+
+列の配置開始位置を指定
+</td>
+<td rowspan="2">
+
+列の開始位置
+</td>
+</tr>
+
+<tr>
+<td>
+
+`col-start-auto`
+</td>
+<td>
+
+列の配置開始位置を自動化
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+`col-end-1` ~ `col-end-12`
+</td>
+<td>
+
+列の配置終了位置を指定
+</td>
+<td rowspan="2">
+
+列の終了位置
+</td>
+</tr>
+
+<tr>
+<td>
+
+`col-end-auto`
+</td>
+<td>
+
+列の配置終了位置を自動化
+</td>
+
+</tr>
+<tr>
+
+<td>
+
+`row-1` ~ `row-12`
+</td>
+<td>
+
+結合する行数
+</td>
+<td rowspan="3">
+
+行の結合
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+`row-full`
+</td>
+<td>
+
+すべての行を結合
+</td>
+</tr>
+
+<tr>
+<td>
+
+`row-auto`
+</td>
+<td>
+
+行の自動配置 <small>（初期値）</small>
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+`row-start-1` ~ `row-start-12`
+</td>
+<td>
+
+行の配置開始位置を指定
+</td>
+<td rowspan="2">
+
+行の開始位置
+</td>
+</tr>
+
+<tr>
+<td>
+
+`row-start-auto`
+</td>
+<td>
+
+行の配置開始位置を自動化
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+`row-end-1` ~ `row-end-12`
+</td>
+<td>
+
+行の配置終了位置を指定
+</td>
+<td rowspan="2">
+
+行の終了位置
+</td>
+</tr>
+
+<tr>
+<td>
+
+`row-end-auto`
+</td>
+<td>
+
+列の配置終了位置を自動化
+</td>
+
+</tr>
+
+
+
+</tbody>
+</table>
+
+
+
+
+---
+
+## 基本的な使い方
+グリッドアイテムに、`data-grid-item` 属性を指定すると、グリッド内のどこにどのように配置するかの設定ができます。
+
+
+
+
+### 列の結合
+`data-grid-item` 属性に `col-1` から `col-12` の値を使って結合する列の数を指定できます。また、`col-full` を指定すると、その行のすべての列を結合します。
+
+
+<iframe src="/olayout-docs/demo/grid-item/demo-col-1.html" style="min-height: 18rem;" ></iframe>
+
+
+```html "col-2" "col-3" "col-full"
+// index.html
+<div data-grid="cols-4" data-gap="2">
+  <div>01</div>
+  <div data-grid-item="col-2">02</div>
+  <div>03</div>
+  <div data-grid-item="col-full">04</div>
+  <div data-grid-item="col-3">05</div>
+  <div>06</div>
+</div>
+```
+
+### 列の開始位置
+`data-grid-item` 属性に `col-start-1` から `col-start-12` の値を使ってアイテムの配置を開始する列のグリッド線の番号を指定できます。
+
+<iframe src="/olayout-docs/demo/grid-item/demo-col-2.html" style="min-height: 19rem;" ></iframe>
+
+
+```html "col-start-1" "col-start-2" "col-start-3" "col-start-4"
+// index.html
+<div data-grid="cols-4" data-gap="2">
+  <div data-grid-item="col-start-2 col-2">01</div>
+  <div data-grid-item="col-start-1">02</div>
+  <div data-grid-item="col-start-4">03</div>
+  <div>04</div>
+  <div data-grid-item="col-start-3">05</div>
+  <div>06</div>
+</div>
+```
+
+### 列の終了位置
+`data-grid-item` 属性に `col-end-1` から `col-end-12` 値を使ってアイテムの配置を終了する列のグリッド線の番号を指定できます。`col-start-*` と組み合わせて列を結合することもできます。
+
+<iframe src="/olayout-docs/demo/grid-item/demo-col-3.html" style="min-height: 20rem;" ></iframe>
+
+
+```html "col-end-5" "col-end-2" "col-end-3" "col-end-4"
+// index.html
+<div data-grid="cols-4" data-gap="2">
+  <div data-grid-item="col-end-4 col-2">01</div>
+  <div data-grid-item="col-end-3">02</div>
+  <div data-grid-item="col-start-3 col-end-5">03</div>
+  <div data-grid-item="col-end-4 col-3">04</div>
+</div>
+```
+
+
+
+### 行の結合
+`data-grid-item` 属性に `row-1` から `row-12` の値を使って結合する行の数を指定できます。また、`row-full` を指定すると、その行のすべての列を結合します。
+
+
+<iframe src="/olayout-docs/demo/grid-item/demo-row-1.html" style="min-height: 18rem;" ></iframe>
+
+
+```html "row-2" "row-3" "row-full"
+// index.html
+<div data-grid="cols-3" data-gap="2" style="--ol-grid-auto-rows: 1fr">
+  <div>01</div>
+  <div data-grid-item="row-2">02</div>
+  <div data-grid-item="row-3">03</div>
+  <div data-grid-item="row-2">04</div>
+  <div>05</div>
+</div>
+```
+
+### 行の開始位置
+`data-grid-item` 属性に `row-start-1` から `row-start-12` の値を使ってアイテムの配置を開始する行のグリッド線の番号を指定できます。
+
+<iframe src="/olayout-docs/demo/grid-item/demo-row-2.html" style="min-height: 19rem;" ></iframe>
+
+
+```html "col-start-1" "col-start-2" "col-start-3" "col-start-4"
+// index.html
+<div data-grid="cols-4" data-gap="2">
+  <div data-grid-item="col-start-2 col-2">01</div>
+  <div data-grid-item="col-start-1">02</div>
+  <div data-grid-item="col-start-4">03</div>
+  <div>04</div>
+  <div data-grid-item="col-start-3">05</div>
+  <div>06</div>
+</div>
+```
+
+### 行の終了位置
+`data-grid-item` 属性に `col-end-1` から `col-end-12` 値を使ってアイテムの配置を終了する行のグリッド線の番号を指定できます。`col-start-*` と組み合わせて列を結合することもできます。
+
+<iframe src="/olayout-docs/demo/grid-item/demo-col-3.html" style="min-height: 20rem;" ></iframe>
+
+
+```html "col-end-5" "col-end-2" "col-end-3" "col-end-4"
+// index.html
+<div data-grid="cols-4" data-gap="2">
+  <div data-grid-item="col-end-4 col-2">01</div>
+  <div data-grid-item="col-end-3">02</div>
+  <div data-grid-item="col-start-3 col-end-5">03</div>
+  <div data-grid-item="col-end-4 col-3">04</div>
+</div>
+```
+
+
+
+---
+
+## レスポンシブ対応
+
+各属性の値を指定する前に、ブレイクポイント名と:を付けることで、ブレイクポイントごとにスタイルを設定できます。
+
+例えば、スマートフォンでは1列、タブレットは2列、PCでは3列にしたいということもあるでしょう。
+
+そのような、ある一定のブラウザサイズから列数が変わるような設定も簡単です。
+
+
+
+<iframe src="/olayout-docs/demo/grid/demo-breakpoint-cols-1.html" style="min-height: 13rem"></iframe>
+
+
+```html "xs:cols-2" "sm:cols-3"
+<div data-grid="xs:cols-2 sm:cols-3" data-gap="3">
+  <div>01</div>
+  <div>...</div>
+  <div>06</div>
+</div>
+```
+
+
+---
+
+
+---
+
+## 特定の箇所だけの値
+
+特定の箇所のみに利用する列や行がある場合は、カスタプロパティを直接上書きすることで対応できます。
+
+| カスタムプロパティ名 | 値  |
+| -------------------- | --- |
+| `--ol-grid-cols` |  `grid-template-columns` の値  |
+| `--ol-grid-cols` |   `grid-template-rows` の値   |
+| `--ol-grid-auto-cols` |   `grid-auto-columns` の値   |
+| `--ol-grid-auto-rows` |   `grid-auto-rows` の値   |
+
+
+### 手軽に任意の値を使う
+
+手軽な方法は、`style` 属性を使ってカスタムプロパティを上書きすることです。
+
+これを使えば、`auto-fill` や `auto-fit` といったCSSの値を活用した、メディアクエリを使わないレスポンシブなグリッドレイアウトを生成するテクニックを利用することもできます。
+
+<iframe src="/olayout-docs/demo/grid/demo-custom-cols-1.html"></iframe>
+
+
+```html "--ol-grid-cols"
+// index.html
+<div data-grid style="--ol-grid-cols: repeat(auto-fill, minmax(120px, 1fr))" data-gap="3">
+  <div>01</div>
+  <div>...</div>
+  <div>06</div>
+</div>
+```
+
+この方法はブレイクポイントごとに値を変更することができません。
+
+### ブレイクポイントごとの値
+
+ブレイクポイントごとに値を変更したい場合は、その要素に`class`属性かカスタムデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
+
+例えば、これを使って `data-grid`属性に元々は用意されていない、暗黙的に生成される列や行の大きさを指定することができます。
+
+:::note
+`data-grid`属性には、CSSの `grid-auto-columns`や `grid-auto-rows`を変更する値は用意していませんが、`--ol-grid-auto-cols` や `--ol-grid-auto-rows` を使えば変更できます。
+:::
+
+<iframe src="/olayout-docs/demo/grid/demo-custom-rows-1.html" style="min-height: 19rem"></iframe>
+
+
+
+```html "my-auto-rows"
+// index.html
+<div data-grid="cols-3 my-auto-rows" data-gap="3" >
+  <div class="box">01</div>
+  <div class="box">...</div>
+  <div class="box">06</div>
+</div>
+```
+
+```css
+// style.css
+[data-grid~="my-auto-rows"] {
+  --ol-grid-auto-rows: minmax(100px, auto);
+}
+
+@media screen and (min-width: 768px) {
+  [data-grid~="my-auto-rows"] {
+    --ol-grid-auto-rows: max-content;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  [data-grid~="my-auto-rows"] {
+    --ol-grid-auto-rows: minmax(0, 1fr);
+  }
+}
+```

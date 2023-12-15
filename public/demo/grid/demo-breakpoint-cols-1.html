@@ -3,17 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
-    <title>Flex | Olayout Demo</title>
+    <title>Grid | Olayout Demo</title>
 
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script src="../assets/js/app.js" defer></script>
   </head>
   <body>
     <div data-py="4" data-px="4">
-      <div data-flex="row-reverse" class="bg-padding-area">
-        <div class="box -border" data-shrink="0">01</div>
-        <div class="box -border" data-shrink="0">02</div>
-        <div class="box -border" data-shrink="0">03</div>
+      <div data-grid="xs:cols-2 sm:cols-3" data-gap="3" data-radius="small" class="bg-padding-area">
+        <div class="box">01</div>
+        <div class="box">02</div>
+        <div class="box">03</div>
+        <div class="box">04</div>
+        <div class="box">05</div>
+        <div class="box">06</div>
       </div>
     </div>
   </body>

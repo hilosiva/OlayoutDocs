@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Grid | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/app.js" defer></script>
+    <style>
+      [data-grid~="my-auto-rows"] {
+        --ol-grid-auto-rows: minmax(100px, auto);
+      }
+
+      @media screen and (min-width: 768px) {
+        [data-grid~="my-auto-rows"] {
+          --ol-grid-auto-rows: max-content;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        [data-grid~="my-auto-rows"] {
+          --ol-grid-auto-rows: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div data-py="4" data-px="4">
+      <div data-grid="cols-3 my-auto-rows" data-gap="3" data-radius="small" class="bg-padding-area">
+        <div class="box">01</div>
+        <div class="box">02</div>
+        <div class="box">03</div>
+        <div class="box">04</div>
+        <div class="box">05</div>
+        <div class="box">06</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -20,7 +20,7 @@ description: A reference page in my new Starlight docs site.
 
 ## 基本的な使い方
 
-フレックスアイテムに、`data-flex-item` 属性を指定すると、フレックスアイテムにもフレックスコンテナーの属性が利用できるようになります。
+フレックスアイテムに、`data-flex-item` 属性を指定すると、フレックスアイテムに伸縮に関する設定ができます。
 
 
 
@@ -35,9 +35,9 @@ description: A reference page in my new Starlight docs site.
 ```html "g-2" "g-1"
 // index.html
 <div data-flex data-gap="2">
-  <div data-flex-item="g-2">...</div>
-  <div data-flex-item="g-1">...</div>
-  <div>...</div>
+  <div data-flex-item="g-2">01</div>
+  <div data-flex-item="g-1">02</div>
+  <div>03</div>
 </div>
 ```
 
@@ -50,10 +50,10 @@ description: A reference page in my new Starlight docs site.
 
 ```html "s-2" "s-1"
 // index.html
-<div data-flex data-gap="2">
-  <div data-flex-item="s-2">...</div>
-  <div data-flex-item="s-1">...</div>
-  <div>...</div>
+<div data-flex="nowrap" data-gap="2">
+  <div data-flex-item="s-2">01</div>
+  <div data-flex-item="s-1">02</div>
+  <div>03</div>
 </div>
 ```
 
@@ -73,9 +73,9 @@ description: A reference page in my new Starlight docs site.
 ```html "data-order="-1"" "data-order="2""
 // index.html
 <div data-flex data-gap="2">
-  <div data-order="-1">...</div>
-  <div data-order="2">...</div>
-  <div>...</div>
+  <div data-order="-1">01</div>
+  <div data-order="2">02</div>
+  <div>03</div>
 </div>
 ```
 
@@ -97,9 +97,9 @@ description: A reference page in my new Starlight docs site.
 ```html "sm:g-0" "sm:g-2" "sm:g-3" "sm:s-1" "sm:s-0"
 // index.html
 <div data-flex data-gap="2">
-  <div data-flex-item="g-2 sm:g-0" >...</div>
-  <div data-flex-item="g-3 s-0 sm:g-2 sm:s-1">...</div>
-  <div data-flex-item="sm:g-3 sm:s-0">...</div>
+  <div data-flex-item="g-2 sm:g-0" >01</div>
+  <div data-flex-item="g-3 s-0 sm:g-2 sm:s-1">02</div>
+  <div data-flex-item="sm:g-3 sm:s-0">03</div>
 </div>
 ```
 
@@ -136,7 +136,7 @@ description: A reference page in my new Starlight docs site.
 
 ### ブレイクポイントごとの値
 
-ブレイクポイントごとに伸び率や縮み率を変更したい場合は、その要素に`class`属性かカスタデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
+ブレイクポイントごとに伸び率や縮み率を変更したい場合は、その要素に`class`属性かカスタムデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
 
 
 <iframe src="/olayout-docs/demo/flex-item/demo-custom-flex-2.html" style="min-height: 8rem; height: 8rem"></iframe>

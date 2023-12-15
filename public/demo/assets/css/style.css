@@ -1,26 +1,106 @@
-@import "https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0/cdn/olayout.min.css?12111";
+@import "https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@6fb303d82e5ced2070f089f09dcab1c6be37ac46/cdn/olayout.min.css?12111";
 @import url("https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@800&display=swap");
 
 :root {
   color-scheme: light dark;
   /* --ol-base-color: #000; */
+  --padding-area-color: #e557ef80;
 }
 
 .bg-padding-area {
   background-color: var(--ol-base-clor);
-  background-image: linear-gradient(-45deg, #e557ef80 10%, #0000 0, #0000 50%, #e557ef80 0, #e557ef80 60%, #0000 0, #0000);
+  background-image: linear-gradient(-45deg, var(--padding-area-color) 10%, #0000 0, #0000 50%, var(--padding-area-color) 0, var(--padding-area-color) 60%, #0000 0, #0000);
   background-size: 6px 6px;
+}
+.bg-padding-area.-blue {
+  --padding-area-color: #3094dc80;
+}
+
+.griddGuide {
+  position: relative;
+}
+.griddGuide__col,
+.griddGuide__row {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  counter-reset: line;
+
+  /*
+  background-color: var(--ol-base-clor);
+  background-image: linear-gradient(90deg, var(--padding-area-color) 1px, #0000 0, #0000 calc(100% - 1px), var(--padding-area-color) 0, var(--padding-area-color));
+  background-size: 25% 100%; */
+}
+
+.griddGuide__col > span,
+.griddGuide__row > span {
+  counter-increment: line;
+  position: relative;
+}
+.griddGuide__col > span {
+  border-right: 1px solid var(--padding-area-color);
+}
+
+.griddGuide__col > span:first-child {
+  border-left: 1px solid var(--padding-area-color);
+}
+
+.griddGuide__row > span {
+  border-bottom: 1px solid var(--padding-area-color);
+}
+
+.griddGuide__row > span:first-child {
+  border-top: 1px solid var(--padding-area-color);
+}
+
+.griddGuide__col > span::before,
+.griddGuide__col > span:last-child::after {
+  content: counter(line);
+  position: absolute;
+
+  top: 0;
+  background-color: var(--padding-area-color);
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.griddGuide__col > span::before {
+  left: 0;
+  transform: translate(-50%, -100%);
+}
+.griddGuide__col > span:last-child::after {
+  counter-increment: line;
+
+  right: 0;
+
+  transform: translate(50%, -100%);
 }
 
 .box {
   font-family: "Rethink Sans", sans-serif;
-  padding: 1.25rem;
+  padding: 1.25em;
   font-weight: 700;
   border-radius: 0.5rem;
   color: #fff;
   letter-spacing: 0.04em;
-
+  text-align: center;
   background: #3094dc;
+}
+
+.box.-accent {
+  background: #58b9ff;
+}
+.box.-hint {
+  opacity: 0.6;
+}
+.box.-border {
+  border: 1px solid #176297;
+  border-radius: 0;
 }
 
 .box.-mid {

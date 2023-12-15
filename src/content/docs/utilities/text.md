@@ -33,7 +33,7 @@ description: A reference page in my new Starlight docs site.
 
 | 属性名    | 属性値                    | 説明 |
 | --------- | ------------------------- | ---- |
-| `data-text` | `uppertext` | 全て大文字 |
+| `data-text` | `uppertext` | すべて大文字 |
 | `data-text` | `normal` | 記述通り |
 
 

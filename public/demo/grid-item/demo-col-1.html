@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Grid Item | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div data-py="4" data-px="4">
+      <div data-grid="cols-4" data-gap="2" data-radius="small">
+        <div class="box -hint">01</div>
+        <div data-grid-item="col-2" class="box">02</div>
+        <div class="box -hint">03</div>
+        <div data-grid-item="col-full" class="box">04</div>
+        <div data-grid-item="col-3" class="box">05</div>
+        <div class="box -hint">06</div>
+      </div>
+    </div>
+  </body>
+</html>
