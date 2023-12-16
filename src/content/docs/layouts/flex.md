@@ -229,7 +229,7 @@ description: A reference page in my new Starlight docs site.
 ```
 
 `data-gap` 属性は、フレックスコンテナーだけの属性ではないため、このページでの説明を割愛します。
-間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layout/gap/)を参照してください。
+間隔の詳細は、[data-gap属性のドキュメント](/olayout-docs/layouts/gap/)を参照してください。
 
 
 
@@ -251,7 +251,7 @@ description: A reference page in my new Starlight docs site.
 ```
 
 `data-place` 属性は、フレックスコンテナーだけの属性ではないため、このページでの説明を割愛します。
-順番の詳細は、[data-place属性のドキュメント](/olayout-docs/layout/place/)を参照してください。
+順番の詳細は、[data-place属性のドキュメント](/olayout-docs/layouts/place/)を参照してください。
 
 
 ---

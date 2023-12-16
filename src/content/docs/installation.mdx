@@ -5,19 +5,29 @@ description: A reference page in my new Starlight docs site.
 
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-Olayout CSSは、俺流のレイアウト用CSSフレームワークです。CSSファイルに移動せず、マークアップしながらカスタムデータ属性でWebページをレイアウトすることにフォーカスしています。
+Olayout CSSは、俺流のレイアウト用CSSフレームワークです。マークアップをしながらカスタムデータ属性を使ってWebページをレイアウトすることにフォーカスしています。
 
 Webサイト制作のコーディングを担当しているコーダーさんが、Webデザイナーさんから頂いたデザインカンプに合わせて要素を配置する時に、Olayoutは力を発揮すると思います。
 
-ただ、ユーティリティファーストなコーディングを行いたい場合は、**確実に** [Tailwind CSS](https://tailwindcss.com/) などのフレームワークの方が便利です。
 
+でも、OlayoutCSSにはまだまだ問題点があるんです。
+
+例えば・・・
+
+- OlayoutCSS自体が900KB程度ある
+- カスタムデータ属性利用するライブラリなどを利用する場合、属性名が被る可能性がある
+
+などが挙げられます。
+それらを踏まえた上でご利用ください。
+
+ユーティリティファーストなコーディングを行いたい場合や、パフォーマスを考慮したい場合は、**確実に** [Tailwind CSS](https://tailwindcss.com/) などのフレームワークの方が便利です。
 
 
 ## インストール
 
 <Tabs>
   <TabItem label="CDN">
-    CDNを利用して、Olayout CSSを試すことができます。ただし、ブレイクポイントのカスタムや便利な関数などの一部の機能が利用できないため、**あまりお勧めはしません。**
+    CDNを利用して、Olayout CSSを試すことができます。ただし、ブレイクポイントのカスタムや便利な関数など、一部の機能が利用できないため、**あまりお勧めはしません。**
 
     1. CDNのOlayout CSSを追加<br />`head`要素内に`link`要素を用いてCDN経由のOlayout CSSを読み込んでください。
 

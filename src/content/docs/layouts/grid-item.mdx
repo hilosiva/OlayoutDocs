@@ -417,14 +417,14 @@ description: A reference page in my new Starlight docs site.
   --ol-grid-col-end: 16;
 }
 
-@media screen and (min-width: 768px) {
+@media (--ol-md) {
   [data-grid-item~="my-cols"] {
     --ol-grid-col-start: 3;
     --ol-grid-col-end: 15;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media (--ol-lg) {
   [data-grid-item~="my-cols"] {
     --ol-grid-col-start: 4;
     --ol-grid-col-end: 14;

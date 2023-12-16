@@ -297,7 +297,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 ```
 
 `data-max-width` 属性は、`data-container` だけの属性ではないため、このページでの説明を割愛します。
-最大幅の詳細は、[data-max-width属性のドキュメント](/olayout-docs/layout/max-width/)を参照してください。
+最大幅の詳細は、[data-max-width属性のドキュメント](/olayout-docs/layouts/max-width/)を参照してください。
 
 
 
@@ -327,9 +327,7 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 そんな時は、コンテナー内に配した要素に `data-over` 属性を利用して、飛び越えたい方向を指定することで、コンテナーを飛び越えることができます。
 
 
-基本的なコンテンツはコンテナーのオフセット値に合わせて表示したいけど、一部の要素だけコンテナーを飛び越えてウインドウの端っこまでコンテンツを表示させたい時に便利です。
-
-<iframe src="/olayout-docs/demo/container/demo-over-1.html" style="min-height: 600px"></iframe>
+<iframe src="/olayout-docs/demo/container/demo-over-1.html" style="min-height: 540px"></iframe>
 
 
 
@@ -340,26 +338,12 @@ Webページやセクションを包む要素に `data-container` 属性を指�
   <div data-over="both">
     <img src="..." alt="">
   </div>
-
-  <div data-grid="cols-2" data-gap="3">
-    <div data-over="left">
-      <img src="..." alt="">
-    </div>
-    <div>
-      ...
-    </div>
-  </div>
-
-  <div data-grid="cols-2" data-gap="3">
-    <div data-over="right" data-order="1">
-      <img src="..." alt="">
-    </div>
-    <div>
-      ...
-    </div>
-  </div>
+  ...
 </div>
 ```
+
+
+`data-over` 属性の詳細は、[data-over属性のドキュメント](/olayout-docs/layoutss/over/)を参照してください。
 
 
 
@@ -384,39 +368,6 @@ Webページやセクションを包む要素に `data-container` 属性を指�
 </div>
 ```
 
-コンテナーの飛び越えもブレイクポイントごとに設定できるので、デザインカンプに合わせた柔軟なレイアウトが可能です。
-
-
-<iframe src="/olayout-docs/demo/container/demo-breakpoint-offset-2.html" style="min-height: 600px"></iframe>
-
-
-```html "sm:xlarge" "sm:clear" "sm:left" "sm:right"
-// index.html
-<div data-container="sm:xlarge">
-  ...
-  <div data-over="both sm:clear">
-    <img src="..." alt="">
-  </div>
-
-  <div data-grid="cols-1 sm:cols-2" data-gap="2 sm:3">
-    <div data-over="both sm:left">
-      <img src="..." alt="">
-    </div>
-    <div>
-      ...
-    </div>
-  </div>
-
-  <div data-grid="cols-1 sm:cols-2" data-gap="2 sm:3">
-    <div data-over="both sm:right" data-order="sm:1">
-      <img src="..." alt="">
-    </div>
-    <div>
-      ...
-    </div>
-  </div>
-</div>
-```
 
 ---
 

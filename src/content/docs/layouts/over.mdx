@@ -1,14 +1,16 @@
 ---
-title: Over
+title: Over The Container
 description: A reference page in my new Starlight docs site.
 ---
+
+`data-over`属性を使えば、[コンテナー](../container/) の中に配置した要素でも、コンテナーを飛び越えて配置できます。
 
 <table>
  <thead>
    <tr>
       <th>属性値</th>
       <th>説明</th>
-      <th>分類</th>
+
    </tr>
  </thead>
  <tbody>
@@ -23,10 +25,7 @@ description: A reference page in my new Starlight docs site.
 
 左側のコンテナーを飛び越える
 </td>
-<td  rowspan="4">
 
-飛び越え
-</td>
 </tr>
 
 <tr>
@@ -64,3 +63,86 @@ description: A reference page in my new Starlight docs site.
 </tr>
 </tbody>
 </table>
+
+---
+
+## 基本的な使い方
+
+
+基本的なコンテンツはコンテナーのオフセット値に合わせて表示したいけど、一部の要素だけコンテナーを飛び越えてウインドウの端っこまでコンテンツを表示させたい時に便利です。
+
+
+<iframe src="/olayout-docs/demo/over/demo-1.html" style="min-height: 600px"></iframe>
+
+
+
+```html "data-over="both"" "data-over="left"" "data-over="right""
+// index.html
+<div data-container>
+  ...
+  <div data-over="both">
+    <img src="..." alt="">
+  </div>
+
+  <div data-grid="cols-2" data-gap="3">
+    <div data-over="left">
+      <img src="..." alt="">
+    </div>
+    <div>
+      ...
+    </div>
+  </div>
+
+  <div data-grid="cols-2" data-gap="3">
+    <div data-over="right" data-order="1">
+      <img src="..." alt="">
+    </div>
+    <div>
+      ...
+    </div>
+  </div>
+</div>
+```
+
+
+---
+
+
+## レスポンシブ対応
+
+各属性の値を指定する前に、ブレイクポイント名と:を付けることで、ブレイクポイントごとにスタイルを設定できます。
+
+
+コンテナーの飛び越えもブレイクポイントごとに設定できるので、デザインカンプに合わせた柔軟なレイアウトが可能です。
+
+
+<iframe src="/olayout-docs/demo/over/demo-breakpoint-1.html" style="min-height: 600px"></iframe>
+
+
+```html "sm:xlarge" "sm:clear" "sm:left" "sm:right"
+// index.html
+<div data-container="sm:xlarge">
+  ...
+  <div data-over="both sm:clear">
+    <img src="..." alt="">
+  </div>
+
+  <div data-grid="cols-1 sm:cols-2" data-gap="2 sm:3">
+    <div data-over="both sm:left">
+      <img src="..." alt="">
+    </div>
+    <div>
+      ...
+    </div>
+  </div>
+
+  <div data-grid="cols-1 sm:cols-2" data-gap="2 sm:3">
+    <div data-over="both sm:right" data-order="sm:1">
+      <img src="..." alt="">
+    </div>
+    <div>
+      ...
+    </div>
+  </div>
+</div>
+```

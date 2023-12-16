@@ -3,15 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
-    <title>Flex Container | Olayout Demo</title>
+    <title>Order | Olayout Demo</title>
 
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script src="../assets/js/app.js" defer></script>
+    <style>
+      [data-order~="my-order"] {
+        --ol-order: 1;
+      }
+      @media (--ol-md) {
+        [data-order~="my-order"] {
+          --ol-order: -1;
+        }
+      }
+
+      @media (--ol-lg) {
+        [data-order~="my-order"] {
+          --ol-order: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <div data-py="4" data-px="4">
       <div data-flex data-gap="2" data-radius="small" class="bg-padding-area">
-        <div class="box">01</div>
+        <div data-order="my-order" class="box">01</div>
         <div class="box">02</div>
         <div class="box">03</div>
       </div>

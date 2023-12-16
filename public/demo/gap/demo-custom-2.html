@@ -3,14 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
-    <title>Grid Container | Olayout Demo</title>
+    <title>Gap | Olayout Demo</title>
 
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script src="../assets/js/app.js" defer></script>
+    <style>
+      [data-gap~="my-gap"] {
+        --ol-gap-col: 2vw;
+        --ol-gap-row: 2vw;
+      }
+
+      @media screen and (min-width: 768px) {
+        [data-gap~="my-gap"] {
+          --ol-gap-col: 3vw;
+          --ol-gap-row: 3vw;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        [data-gap~="my-gap"] {
+          --ol-gap-col: 4vw;
+          --ol-gap-row: 4vw;
+        }
+      }
+    </style>
   </head>
   <body>
     <div data-py="4" data-px="4">
-      <div data-grid data-gap="3" style="--ol-grid-cols: repeat(auto-fill, minmax(120px, 1fr))" data-radius="small" class="bg-padding-area">
+      <div data-grid="cols-3" data-gap="my-gap" data-radius="small" class="bg-padding-area">
         <div class="box">01</div>
         <div class="box">02</div>
         <div class="box">03</div>
