@@ -11,13 +11,13 @@
       [data-order~="my-order"] {
         --ol-order: 1;
       }
-      @media (--ol-md) {
+      @media screen and (min-width: 768px) {
         [data-order~="my-order"] {
           --ol-order: -1;
         }
       }
 
-      @media (--ol-lg) {
+      @media screen and (min-width: 1024px) {
         [data-order~="my-order"] {
           --ol-order: 0;
         }

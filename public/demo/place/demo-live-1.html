@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
+    <title>Place | Olayout Demo</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <div data-py="4" data-px="4">
+        <div
+          :data-flex="selectedDirection"
+          :data-grid="selectedDirection"
+          :data-display="selectedDisplay"
+          :data-place="`${selectedContent} ${selectedItems}`"
+          data-gap="2"
+          data-radius="small"
+          class="bg-padding-area"
+          style="height: 60vh; --ol-grid-cols: repeat(3, auto); --ol-grid-rows: repeat(3, auto)"
+        >
+          <div class="box -mid">01</div>
+          <div class="box -heigh">02</div>
+          <div class="box -low">03</div>
+          <div class="box -heigh">04</div>
+          <div class="box -mid">05</div>
+          <div class="box -low">06</div>
+        </div>
+      </div>
+      <div data-mt="1" data-px="4">
+        <dl data-grid="col">
+          <div>
+            <dt>ディスプレイ</dt>
+            <dd>
+              <select v-model="selectedDisplay">
+                <option v-for="option in optionsDisplay" :value="option.value">{{ option.text }}</option>
+              </select>
+            </dd>
+          </div>
+          <div>
+            <dt>方向</dt>
+            <dd>
+              <select v-model="selectedDirection">
+                <option v-for="option in optionsDirection" :value="option.value">{{ option.text }}</option>
+              </select>
+            </dd>
+          </div>
+          <div>
+            <dt>コンテンツ全体の配置</dt>
+            <dd>
+              <select v-model="selectedContent">
+                <option v-for="option in optionsContent" :value="option.value">{{ option.text }}</option>
+              </select>
+            </dd>
+          </div>
+          <div>
+            <dt>各アイテムの配置</dt>
+            <dd>
+              <select v-model="selectedItems">
+                <option v-for="option in optionsItems" :value="option.value">{{ option.text }}</option>
+              </select>
+            </dd>
+          </div>
+        </dl>
+        <p data-py="3"><small>※Grid は、列と行のどちらにも `repeat(3, auto)` を指定しています。</small></p>
+      </div>
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const message = ref("Hello vue!");
+          const place = ref({
+            justify: "start",
+            align: "start",
+          });
+          const selectedContent = ref("start");
+          const selectedItems = ref("first");
+          const selectedDisplay = ref("flex");
+          const selectedDirection = ref("row");
+
+          const optionsDisplay = ref([
+            { text: "Flex", value: "flex" },
+            { text: "Grid", value: "grid" },
+          ]);
+          const optionsDirection = ref([
+            { text: "row", value: "row" },
+            { text: "col", value: "col" },
+          ]);
+          const optionsContent = ref([
+            { text: "start", value: "start" },
+            { text: "center", value: "center" },
+            { text: "end", value: "end" },
+            { text: "between", value: "between" },
+            { text: "+start", value: "+start" },
+            { text: "+center", value: "+center" },
+            { text: "+end", value: "+end" },
+            { text: "+between", value: "+between" },
+          ]);
+          const optionsItems = ref([
+            { text: "first", value: "first" },
+            { text: "middle", value: "middle" },
+            { text: "last", value: "last" },
+            { text: "stretch", value: "stretch" },
+            { text: "+first", value: "+first" },
+            { text: "+middle", value: "+middle" },
+            { text: "+last", value: "+last" },
+            { text: "+stretch", value: "+stretch" },
+          ]);
+          return {
+            message,
+            selectedContent,
+            selectedItems,
+            selectedDisplay,
+            selectedDirection,
+            optionsContent,
+            optionsItems,
+            optionsDisplay,
+            optionsDirection,
+            place,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

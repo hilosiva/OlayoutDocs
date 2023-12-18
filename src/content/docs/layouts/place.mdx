@@ -3,33 +3,31 @@ title: Place
 description: A reference page in my new Starlight docs site.
 ---
 
-Webページやセクションを包む要素に使用します。
 
-Webページ全体のセンタリングや、セクション内のコンテンツのセンタリング、固定幅を設定してコンテンツを右端揃えにするなどに活用してください。
-
-
+`data-place`属性は、主にグリッドコンテナーやフレックスコンテナーに利用して配置位置を指定する時に利用します。
 
 <table>
  <thead>
    <tr>
-      <th>属性名</th>
       <th>属性値</th>
       <th>説明</th>
+      <th>分類</th>
    </tr>
  </thead>
  <tbody>
 <tr>
-<td rowspan="16">
 
-`data-place`
-</td>
 <td>
 
  `start`
 </td>
 <td>
 
-左揃え（上揃え）
+軸の先頭側に揃える
+</td>
+<td rowspan="4">
+
+主軸/水平軸のコンテンツ全体<br /><small>（`justify-content`）</small>
 </td>
 </tr>
 
@@ -40,7 +38,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-水平中央（水平中央）
+軸の中央に揃える
 </td>
 </tr>
 
@@ -51,7 +49,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-右揃え（下揃え）
+軸の終了側に揃える
 </td>
 </tr>
 
@@ -62,7 +60,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-均等揃え
+軸で均等配置
 </td>
 </tr>
 
@@ -71,9 +69,14 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 
  `first`
 </td>
+
 <td>
 
-上揃え（左揃え）
+軸の先頭側に揃える
+</td>
+<td rowspan="4">
+
+交差軸/垂直軸の各アイテム<br /><small>（`align-items`）</small>
 </td>
 </tr>
 
@@ -84,7 +87,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-垂直中央揃え（水平中央）
+軸の中央に揃える
 </td>
 </tr>
 <tr>
@@ -94,7 +97,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-下揃え（右揃え）
+軸の終了側に揃える
 </td>
 </tr>
 <tr>
@@ -104,7 +107,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-伸縮
+軸で引き伸ばす
 </td>
 </tr>
 
@@ -114,9 +117,13 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 
  `+start`
 </td>
+
 <td>
 
-コンテンツの左上揃え
+両軸の先頭側に揃える
+</td>
+<td rowspan="4">
+水平軸と垂直軸のコンテンツ全体<br /><small>（`place-content`）</small>
 </td>
 </tr>
 
@@ -127,7 +134,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-コンテンツの中央揃え
+両軸の中央に揃える
 </td>
 </tr>
 
@@ -138,7 +145,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-コンテンツの右下揃え
+両軸の終了側に揃える
 </td>
 </tr>
 
@@ -149,7 +156,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-コンテンツの等間隔揃え
+両軸で均等配置
 </td>
 </tr>
 
@@ -160,7 +167,11 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-アイテムの左上揃え
+両軸の先頭側に揃える
+</td>
+<td rowspan="4">
+
+水平軸と垂直軸の各アイテム<br /><small>（`place-items`）</small>
 </td>
 </tr>
 
@@ -171,7 +182,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-アイテムの中央揃え
+両軸の中央に揃える
 </td>
 </tr>
 
@@ -182,7 +193,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-アイテムの右下揃え
+両軸の終了側に揃える
 </td>
 </tr>
 
@@ -194,7 +205,7 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </td>
 <td>
 
-アイテムの伸縮
+両軸で引き伸ばす
 </td>
 </tr>
 
@@ -204,4 +215,203 @@ Webページ全体のセンタリングや、セクション内のコンテン�
 </tbody>
 </table>
 
-フレックスアイテムの水平方向の位置と垂直方向の位置を半角スペース区切りで同時に指定できます。
+:::note
+属性値の名前は今後のバージョンアップで変更する可能性があります。
+:::
+
+
+---
+
+## 基本的な使い方
+
+`data-place`属性は、主に `data-flex` 属性（フレックスコンテナー）、や `data-grid` 属性（グリッドコンテナー）と組み合わせて利用します。
+
+### 主軸/水平軸のコンテンツ全体の位置
+
+
+
+フレックスコンテナーの主軸方向やグリッドコンテナーの水平軸方向のコンテンツ全体の位置を、`start` 、`center` 、`end` や `between` で指定できます。
+
+
+:::note
+フレックスコンテナーの主軸は、`data-flex` 属性の値が `row` または `row-reverse` の場合は水平軸、 `col` または `col-reverse` の場合は垂直軸となります。
+:::
+
+
+
+<iframe src="/olayout-docs/demo/place/demo-flex-1.html" style="min-height: 120px"></iframe>
+
+
+```html "data-place="center""
+// index.html
+<div data-flex data-gap="2" data-place="center">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### 交差軸/垂直軸の各アイテムの位置
+
+
+
+フレックスコンテナーの交差軸方向やグリッドコンテナーの垂直軸方向の各アイテムの位置揃えは、`first` 、`middle` 、`last` や `stretch` で指定できます。
+
+
+:::note
+フレックスコンテナーの交差軸は、`data-flex` 属性の値が `row` または `row-reverse` の場合は垂直軸、 `col` または `col-reverse` の場合は水平軸となります。
+:::
+
+
+
+<iframe src="/olayout-docs/demo/place/demo-flex-2.html" style="min-height: 120px"></iframe>
+
+
+```html "middle"
+// index.html
+<div data-flex data-gap="2" data-place="middle">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### 水平軸と垂直軸のコンテンツ全体の位置
+
+
+
+フレックスコンテナーの主軸と交差軸、グリッドコンテナーの水平軸と垂直軸の各方向のコンテンツ全体の位置を、`+start` 、`+center` 、`+end` や `+between` で一括指定できます。
+
+
+
+<iframe src="/olayout-docs/demo/place/demo-place-1.html" style="min-height: 320px"></iframe>
+
+
+```html "+center"
+// index.html
+<div data-grid data-place="+center" data-height="device">
+  <div>...</div>
+</div>
+```
+
+### 水平軸と垂直軸の各アイテムの位置
+
+
+
+フレックスコンテナーの交差軸、グリッドコンテナーの水平軸と垂直軸の各方向のコンテンツ全体の位置を、`+start` 、`+center` 、`+end` や `+between` で一括指定できます。
+
+:::note
+フレックスコンテナーの主軸には適用されません
+:::
+
+
+<iframe src="/olayout-docs/demo/place/demo-place-2.html" style="min-height: 320px"></iframe>
+
+
+```html "+middle"
+// index.html
+<div data-grid data-place="+center +middle" data-height="device">
+  <div>...</div>
+  <div>...</div>
+</div>
+```
+
+---
+
+## ライブデモ
+
+ライブデモで `data-place` 属性の各値を試せます。
+
+<iframe src="/olayout-docs/demo/place/demo-live-1.html" style="min-height: 480px"></iframe>
+
+
+---
+
+## レスポンシブ対応
+
+各属性の値を指定する前に、ブレイクポイント名と:を付けることで、ブレイクポイントごとにスタイルを設定できます。
+
+
+<iframe src="/olayout-docs/demo/place/demo-breakpoint-1.html" style="min-height: 160px"></iframe>
+
+
+
+```html "sm:end" "sm:middle"
+// index.html
+<div data-flex data-place="center stretch sm:end sm:middle" data-gap="2">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+
+
+## 特定の箇所だけの値
+
+特定の箇所のみ順序を変更したいなど、一部だけ利用したいスタイルがある場合は、カスタプロパティを直接上書きすることで対応できます。
+
+| カスタムプロパティ名 | 値  |
+| -------------------- | --- |
+| `--ol-align-content` |   `align-content` の値  |
+| `--ol-justify-content` |   `justify-content` の値  |
+| `--ol-align-items` |   `align-items` の値  |
+| `--ol-justify-items` |   `justify-items` の値  |
+
+
+### 手軽に任意の値を使う
+
+手軽な方法は、`style` 属性を使ってカスタムプロパティを上書きすることです。
+
+
+
+<iframe src="/olayout-docs/demo/place/demo-custom-1.html" style="min-height: 8rem;"></iframe>
+
+
+```html "--ol-justify-content: space-around"
+// index.html
+<div data-flex data-place data-gap="2" style="--ol-justify-content: space-around">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+この方法はブレイクポイントごとに値を変更することができません。
+
+### ブレイクポイントごとの値
+
+ブレイクポイントごとに値を変更したい場合は、その要素に`class`属性かカスタムデータ属性を使って任意の値を指定し、そのセレクターに対してCSSファイル内でメディアクエリを利用して変更してください。
+
+
+<iframe src="/olayout-docs/demo/place/demo-custom-2.html" style="min-height: 8rem"></iframe>
+
+
+
+```html "my-place"
+// index.html
+<div data-flex data-place="my-place" data-gap="2">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+```css
+// style.css
+[data-place~="my-place"] {
+  --ol-justify-content: space-evenly;
+}
+
+@media (--ol-md) {
+  [data-place~="my-place"] {
+    --ol-justify-content: space-around;
+  }
+}
+
+@media (--ol-lg) {
+  [data-place~="my-place"] {
+    --ol-justify-content: space-between;
+  }
+}
+```
