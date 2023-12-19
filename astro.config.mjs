@@ -51,6 +51,10 @@ export default defineConfig({
           autogenerate: { directory: "layouts" },
         },
         {
+          label: "Spacing",
+          autogenerate: { directory: "spacing" },
+        },
+        {
           label: "Component",
           autogenerate: { directory: "components" },
         },

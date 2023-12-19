@@ -1,0 +1,46 @@
+---
+title: Position
+description: A reference page in my new Starlight docs site.
+---
+
+`data-position`属性を配置モードの設定ができます
+
+
+| 属性値     | 説明                                     |
+| ---------- | ---------------------------------------- |
+| `static`   | 通常配置モード <small>（初期値）</small> |
+| `relative` | 相対配置モード                           |
+| `absolute` | 絶対配置モード                           |
+| `fixed`    | 固定配置モード                           |
+| `sticky`         | 粘着配置モード |
+
+---
+
+## 基本的な使い方
+
+
+`data-position`属性を使用して、配置モードを変更できます。
+
+<iframe src="/olayout-docs/demo/position/demo-1.html" style="min-height: 120px"></iframe>
+
+
+
+```html "data-position="fixed""
+// index.html
+<div data-position="fixed">
+  ...
+</div>
+```
+
+### 配置位置
+
+`data-inset` 属性と組み合わせることで配置場所を指定できます。
+
+
+```html "data-inset="t-6""
+// index.html
+<div data-position="sticky" data-inset="t-6">
+  ...
+</div>
+```
+---

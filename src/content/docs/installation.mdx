@@ -9,16 +9,22 @@ Olayout CSSは、俺流のレイアウト用CSSフレームワークです。マ
 
 Webサイト制作のコーディングを担当しているコーダーさんが、Webデザイナーさんから頂いたデザインカンプに合わせて要素を配置する時に、Olayoutは力を発揮すると思います。
 
-
-でも、OlayoutCSSにはまだまだ問題点があるんです。
-
-例えば・・・
+:::caution
+OlayoutCSSにはまだまだ問題点があります。
 
 - OlayoutCSS自体が900KB程度ある
-- カスタムデータ属性利用するライブラリなどを利用する場合、属性名が被る可能性がある
+- カスタムデータ属性利用するライブラリを利用する場合に属性名が被る可能性がある
+- そもそもカスタムデータ属性を使ってるのはセマンティックなのか
+- 設計が甘すぎる
 
 などが挙げられます。
 それらを踏まえた上でご利用ください。
+
+:::
+
+
+
+
 
 ユーティリティファーストなコーディングを行いたい場合や、パフォーマスを考慮したい場合は、**確実に** [Tailwind CSS](https://tailwindcss.com/) などのフレームワークの方が便利です。
 
@@ -39,7 +45,7 @@ Webサイト制作のコーディングを担当しているコーダーさん�
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width,  initial-scale=1.0">
          <title>Olayout CSS</title>
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.0/cdn/olayout.min.css">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hilosiva/OlayoutCSS@v1.0.3/cdn/olayout.min.css">
        </head>
        <body>
 
@@ -105,7 +111,12 @@ Webサイト制作のコーディングを担当しているコーダーさん�
         ],
        };
        ```
-    3. CSSファイルを用意<br />OlayoutのCSSが挿入されるCSSファイルを用意し、HTMLファイルにリンクしてください。
+    3. CSSファイルを用意<br />OlayoutのCSSが挿入されるCSSファイル、またはstyle要素に `@olayout;` と記述し、HTMLファイルにリンクしてください。
+       ```css
+       // style.css
+       @olayout;
+       ```
+
        ```html {8}
        // index.html
        <!DOCTYPE html>
